@@ -189,7 +189,7 @@ function SidebarContent({ onNavClick }: { onNavClick?: () => void }) {
       <div className="mx-4 h-px bg-white/[0.07] shrink-0" />
 
       {/* ── User footer ── */}
-      <div className="px-4 py-4 shrink-0">
+      <div className="px-4 py-4 shrink-0" style={{ paddingLeft: '15px', paddingBottom: '15px' }}>
         {session ? (
           <div className="flex flex-col gap-2">
             {/* User info */}
