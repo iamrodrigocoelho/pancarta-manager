@@ -77,7 +77,7 @@ export default function ForgotPasswordPage() {
 
         {submitted ? (
           /* Success state */
-          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-8 flex flex-col items-center text-center gap-4 animate-fade-in">
+          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm flex flex-col items-center text-center gap-4 animate-fade-in" style={{ padding: '32px' }}>
             <div className="w-14 h-14 rounded-full bg-[#D1FAE5] flex items-center justify-center">
               <svg className="w-7 h-7 text-[#059669]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -99,7 +99,7 @@ export default function ForgotPasswordPage() {
             </div>
 
             {/* Admin note */}
-            <div className="w-full px-4 py-3 rounded-lg bg-[#F1F5F9] border border-[#E2E8F0] text-sm text-[#64748B] text-left leading-relaxed">
+            <div className="w-full px-5 py-4 rounded-lg bg-[#F1F5F9] border border-[#E2E8F0] text-sm text-[#64748B] text-left leading-relaxed">
               <p className="font-semibold text-[#334155] mb-1">Não possui e-mail cadastrado?</p>
               Entre em contato com o administrador do sistema para solicitar a redefinição da sua senha.
             </div>
@@ -113,13 +113,13 @@ export default function ForgotPasswordPage() {
           </div>
         ) : (
           /* Form state */
-          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6 flex flex-col gap-5">
-            <p className="text-sm text-[#64748B] leading-relaxed">
+          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm flex flex-col gap-5" style={{ padding: '32px' }}>
+            <p className="text-sm text-[#64748B] leading-relaxed text-justify">
               Informe sua matrícula ou e-mail cadastrado. Se encontrarmos uma conta correspondente
               com e-mail registrado, enviaremos as instruções para redefinição de senha.
             </p>
 
-            <div className="px-4 py-3 rounded-lg bg-[#FFF7ED] border border-[#FED7AA] flex items-start gap-2.5">
+            <div className="px-5 py-4 rounded-lg bg-[#FFF7ED] border border-[#FED7AA] flex items-start gap-2.5">
               <svg aria-hidden="true" className="w-4 h-4 text-[#D97706] mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
@@ -146,6 +146,9 @@ export default function ForgotPasswordPage() {
                 variant="primary"
                 size="lg"
                 loading={isSubmitting}
+                style={{ backgroundColor: '#0F2240' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#162B52')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0F2240')}
                 className="w-full"
               >
                 {isSubmitting ? 'Enviando…' : 'Enviar instruções'}

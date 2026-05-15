@@ -224,6 +224,7 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 placeholder="••••••••"
                 required
+                showPasswordToggle
                 error={errors.password?.message}
                 {...register('password')}
               />
@@ -242,6 +243,9 @@ export default function LoginPage() {
               variant="primary"
               size="lg"
               loading={isSubmitting}
+              style={{ backgroundColor: '#0F2240' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#162B52')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0F2240')}
               className="w-full mt-1"
             >
               {isSubmitting ? 'Entrando…' : 'Entrar'}

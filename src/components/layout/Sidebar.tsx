@@ -98,12 +98,13 @@ function NavLink({ item, pathname, onClick }: { item: NavItem; pathname: string;
       href={item.href}
       onClick={onClick}
       aria-current={isActive ? 'page' : undefined}
-      className={[
-        'relative flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-150',
-        isActive
-          ? 'bg-white/[0.09] text-white'
-          : 'text-white/55 hover:text-white/90 hover:bg-white/[0.05]',
-      ].join(' ')}
+      className="relative flex items-center py-2.5 rounded-lg text-[13px] font-medium transition-all duration-150"
+      style={isActive
+        ? { color: '#ffffff', background: 'rgba(255,255,255,0.09)', gap: '15px', paddingLeft: '15px', paddingRight: '16px' }
+        : { color: 'rgba(255,255,255,0.30)', gap: '15px', paddingLeft: '15px', paddingRight: '16px' }
+      }
+      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.70)' }}
+      onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.30)' }}
     >
       {/* Active left indicator */}
       {isActive && (
@@ -112,7 +113,7 @@ function NavLink({ item, pathname, onClick }: { item: NavItem; pathname: string;
           aria-hidden="true"
         />
       )}
-      <span className={isActive ? 'text-white' : 'text-white/40'}>
+      <span>
         {item.icon}
       </span>
       {item.label}
@@ -165,7 +166,7 @@ function SidebarContent({ onNavClick }: { onNavClick?: () => void }) {
       <div className="mx-4 h-px bg-white/[0.07] shrink-0" />
 
       {/* ── Nav ── */}
-      <nav aria-label="Menu principal" className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
+      <nav aria-label="Menu principal" className="flex-1 overflow-y-auto px-3 space-y-0.5" style={{ paddingTop: '15px', paddingBottom: '16px' }}>
         {navItems.map((item) => (
           <NavLink key={item.href} item={item} pathname={pathname} onClick={onNavClick} />
         ))}
@@ -173,7 +174,7 @@ function SidebarContent({ onNavClick }: { onNavClick?: () => void }) {
         {isAdmin && (
           <>
             <div className="pt-5 pb-1.5 px-4">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-white/25">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.1em]" style={{ color: 'rgba(255,255,255,0.25)' }}>
                 Administração
               </p>
             </div>
@@ -200,10 +201,10 @@ function SidebarContent({ onNavClick }: { onNavClick?: () => void }) {
                 {initials}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[13px] font-semibold text-white/90 truncate">
+                <p className="text-[13px] font-semibold truncate" style={{ color: 'rgba(255,255,255,0.90)' }}>
                   {session.nome}
                 </p>
-                <p className="text-[11px] text-white/35 truncate">
+                <p className="text-[11px] truncate" style={{ color: 'rgba(255,255,255,0.35)' }}>
                   {profileLabels[session.perfil] ?? session.perfil}
                   {session.lojaCode ? ` · ${session.lojaCode}` : ''}
                 </p>
@@ -215,7 +216,11 @@ function SidebarContent({ onNavClick }: { onNavClick?: () => void }) {
               onClick={handleLogout}
               disabled={loggingOut}
               aria-label="Sair da conta"
-              className="flex items-center gap-2 w-full px-3 py-2 rounded-lg text-[13px] text-white/40 hover:text-white/80 hover:bg-white/[0.06] transition-colors disabled:opacity-40"
+              className="flex items-center gap-2 w-full px-3 py-2 rounded-lg text-[13px] transition-colors disabled:opacity-40"
+              style={{ color: 'rgba(255,255,255,0.40)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.80)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.40)')}
+
             >
               {loggingOut ? <Spinner size="sm" color="white" /> : <LogoutIcon />}
               Sair
