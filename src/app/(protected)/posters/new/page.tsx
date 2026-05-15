@@ -378,7 +378,6 @@ export default function NewPosterPage() {
             )}
           </div>
         )}
-      </div>
     </div>
   )
 }
