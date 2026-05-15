@@ -124,7 +124,10 @@ function StatCard({ icon, value, label, accent = 'red' }: StatCardProps) {
   const cfg = accentConfig[accent]
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E2E8F0] p-5 flex items-center gap-4 shadow-sm">
+    <div
+      className="bg-white rounded-2xl border border-[#E2E8F0] flex items-center gap-4 shadow-sm"
+      style={{ padding: '20px' }}
+    >
       <div className={['w-12 h-12 rounded-xl flex items-center justify-center shrink-0', cfg.bg, cfg.icon].join(' ')}>
         {icon}
       </div>
@@ -145,41 +148,45 @@ function ActionCard({ href, icon, title, description, accent = false }: ActionCa
     <Link
       href={href}
       className={[
-        'group relative flex flex-col gap-3 rounded-2xl border p-5 min-h-[140px]',
+        'group relative flex flex-col gap-3 rounded-2xl border min-h-[140px]',
         'transition-all duration-200 shadow-sm',
         'hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm',
         'focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
         accent
           ? 'bg-[#E41513] border-[#C01211] text-white'
-          : 'bg-white border-[#E2E8F0] text-[#0F172A] hover:border-[#E41513]/30',
+          : 'bg-white border-[#E2E8F0] text-[#0F172A]',
       ].join(' ')}
+      style={{ padding: '20px' }}
     >
-      <div className={[
-        'w-10 h-10 rounded-xl flex items-center justify-center shrink-0',
-        accent ? 'bg-white/15 text-white' : 'bg-[#FEE8E8] text-[#E41513]',
-      ].join(' ')}>
+      <div
+        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+        style={accent
+          ? { background: 'rgba(255,255,255,0.15)', color: '#ffffff' }
+          : { background: '#FEE8E8', color: '#E41513' }
+        }
+      >
         {icon}
       </div>
 
       <div className="flex-1">
-        <p className={[
-          'font-bold text-sm leading-tight',
-          accent ? 'text-white' : 'text-[#0F172A]',
-        ].join(' ')} style={{ fontFamily: "'Sora', sans-serif" }}>
+        <p
+          className="font-bold text-sm leading-tight"
+          style={{ fontFamily: "'Sora', sans-serif", color: accent ? '#ffffff' : '#0F172A' }}
+        >
           {title}
         </p>
-        <p className={[
-          'mt-1 text-xs leading-relaxed',
-          accent ? 'text-white/75' : 'text-[#64748B]',
-        ].join(' ')}>
+        <p
+          className="mt-1 text-xs leading-relaxed"
+          style={{ color: accent ? 'rgba(255,255,255,0.75)' : '#64748B' }}
+        >
           {description}
         </p>
       </div>
 
-      <span className={[
-        'absolute bottom-4 right-4 transition-transform duration-200 group-hover:translate-x-0.5',
-        accent ? 'text-white/60' : 'text-[#94A3B8]',
-      ].join(' ')}>
+      <span
+        className="absolute transition-transform duration-200 group-hover:translate-x-0.5"
+        style={{ bottom: '16px', right: '16px', color: accent ? 'rgba(255,255,255,0.60)' : '#94A3B8' }}
+      >
         <ArrowRightIcon />
       </span>
     </Link>
@@ -203,53 +210,54 @@ function WelcomeBanner({ nome, lojaNome, perfil }: { nome: string; lojaNome: str
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#E41513] to-[#C01211] px-6 py-5 text-white shadow-md">
-      {/* Pattern */}
+    <div
+      className="relative overflow-hidden rounded-2xl shadow-sm"
+      style={{ background: '#0F2240', padding: '20px 24px' }}
+    >
+      {/* Subtle grid */}
       <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
-          backgroundSize: '20px 20px',
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
         }}
       />
-      {/* Diagonal stripe */}
+      {/* Red accent line at bottom */}
       <div
-        className="absolute pointer-events-none opacity-10"
+        className="absolute bottom-0 left-0 right-0 h-0.5 pointer-events-none"
         aria-hidden="true"
-        style={{
-          width: '150%',
-          height: '80px',
-          background: 'rgba(255,255,255,0.3)',
-          transform: 'rotate(-12deg)',
-          top: '10px',
-          right: '-20%',
-        }}
+        style={{ background: 'linear-gradient(90deg, transparent, #E41513 40%, transparent)' }}
       />
 
       <div className="relative z-10 flex items-center justify-between gap-4">
         <div>
-          <p className="text-white/75 text-sm font-medium">{greeting},</p>
+          <p className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.45)' }}>{greeting},</p>
           <h2
-            className="mt-0.5 text-xl font-extrabold leading-tight"
+            className="mt-0.5 text-xl font-extrabold leading-tight text-white"
             style={{ fontFamily: "'Sora', sans-serif" }}
           >
             {nome}
           </h2>
           <div className="flex items-center gap-2 mt-2 flex-wrap">
-            <span className="px-2.5 py-0.5 rounded-full bg-white/15 border border-white/20 text-xs font-semibold">
+            <span
+              className="px-2.5 py-0.5 rounded-full text-xs font-semibold"
+              style={{ background: 'rgba(228,21,19,0.18)', color: '#E41513', border: '1px solid rgba(228,21,19,0.25)' }}
+            >
               {profileLabel[perfil] ?? perfil}
             </span>
             {lojaNome && (
-              <span className="text-white/70 text-xs font-medium">{lojaNome}</span>
+              <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.45)' }}>{lojaNome}</span>
             )}
           </div>
         </div>
 
-        {/* Large icon */}
-        <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 hidden sm:flex">
-          <svg aria-hidden="true" className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z" />
+        <div
+          className="w-12 h-12 rounded-xl hidden sm:flex items-center justify-center shrink-0"
+          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)' }}
+        >
+          <svg aria-hidden="true" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} style={{ color: 'rgba(255,255,255,0.50)' }}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         </div>
       </div>

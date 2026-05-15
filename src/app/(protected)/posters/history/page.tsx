@@ -230,8 +230,7 @@ export default function HistoryPage() {
   if (!authorized || !session) return null
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC]">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl flex flex-col gap-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
@@ -258,7 +257,7 @@ export default function HistoryPage() {
         </div>
 
         {/* Filter bar */}
-        <div className="bg-white rounded-xl border border-[#E2E8F0] shadow-sm p-4 mb-6">
+        <div className="bg-white rounded-xl border border-[#E2E8F0] shadow-sm mb-6" style={{ padding: '16px' }}>
           <div className="flex flex-col sm:flex-row gap-3">
             {/* Search */}
             <div className="flex-1 relative">
@@ -424,7 +423,6 @@ export default function HistoryPage() {
             />
           </>
         )}
-      </div>
-    </main>
+    </div>
   )
 }

@@ -95,7 +95,7 @@ function StepIndicator({ current }: { current: number }) {
 
 function SectionCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+    <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm" style={{ padding: '20px' }}>
       <div className="mb-5">
         <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif]">{title}</h2>
         {subtitle && <p className="mt-1 text-sm text-[#64748B]">{subtitle}</p>}
@@ -296,8 +296,7 @@ export default function ImportPostersPage() {
   const validCount = rows.filter((r) => r._valida).length
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC]">
-      <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="max-w-5xl flex flex-col gap-6">
         {/* Page header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
@@ -580,7 +579,6 @@ export default function ImportPostersPage() {
             </SectionCard>
           )}
         </div>
-      </div>
-    </main>
+    </div>
   )
 }

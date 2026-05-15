@@ -169,8 +169,7 @@ export default function NewPosterPage() {
   const canSkipApproval = !isLoja && (posterStatus === 'RASCUNHO' || posterStatus === 'APROVADA_PELA_LOJA')
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC]">
-      <div className="max-w-3xl ml-0 mr-auto pl-14 pr-8 py-8">
+    <div className="max-w-3xl flex flex-col gap-6">
         {/* Page header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
@@ -199,7 +198,7 @@ export default function NewPosterPage() {
 
         {/* ── Step 1: Form ── */}
         {step === 1 && (
-          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm" style={{ padding: '20px' }}>
             <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif] mb-5">
               Dados da Pancarta
             </h2>
@@ -211,7 +210,7 @@ export default function NewPosterPage() {
         {step >= 2 && createdPoster && (
           <div className="flex flex-col gap-6">
             {/* Preview card */}
-            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm" style={{ padding: '20px' }}>
               <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif] mb-5">
                 Pré-visualização
               </h2>
@@ -230,7 +229,7 @@ export default function NewPosterPage() {
 
             {/* Action panel */}
             {step < 4 && (
-              <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+              <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm" style={{ padding: '20px' }}>
                 <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif] mb-2">
                   {isLoja
                     ? posterStatus === 'AGUARDANDO_CONFERENCIA'
@@ -314,7 +313,7 @@ export default function NewPosterPage() {
 
             {/* ── Step 4: PDF ready ── */}
             {step === 4 && pdfResult && (
-              <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+              <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm" style={{ padding: '20px' }}>
                 {/* Success banner */}
                 <div className="flex items-center gap-3 mb-5 px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-200">
                   <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 shrink-0">
@@ -380,6 +379,6 @@ export default function NewPosterPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   )
 }

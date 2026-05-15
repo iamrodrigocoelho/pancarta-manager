@@ -82,7 +82,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <TopBar title={pageTitle} onMenuOpen={openMenu} />
 
         {/* Desktop page header */}
-        <div className="hidden md:block px-6 pt-7 pb-1 shrink-0">
+        <div className="hidden md:block shrink-0" style={{ paddingLeft: '15px', paddingTop: '15px', paddingBottom: '4px', paddingRight: '24px' }}>
           <h1
             className="text-xl font-bold text-[#0F172A]"
             style={{ fontFamily: "'Sora', sans-serif" }}
@@ -94,7 +94,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <main
           id="main-content"
           tabIndex={-1}
-          className="flex-1 px-4 py-4 md:px-6 md:py-6 min-h-0 focus:outline-none"
+          className="flex-1 min-h-0 focus:outline-none"
+          style={{ paddingLeft: '15px', paddingTop: '15px', paddingRight: '24px', paddingBottom: '24px' }}
         >
           {children}
         </main>
