@@ -50,10 +50,10 @@ function StepIndicator({ current }: { current: number }) {
                   className={[
                     'flex items-center justify-center w-8 h-8 rounded-full border-2 text-sm font-bold transition-all',
                     isDone
-                      ? 'border-[#C41E3A] bg-[#C41E3A] text-white'
+                      ? 'border-[#E41513] bg-[#E41513] text-white'
                       : isActive
-                        ? 'border-[#C41E3A] bg-white text-[#C41E3A]'
-                        : 'border-[#D1D5DB] bg-white text-[#9CA3AF]',
+                        ? 'border-[#E41513] bg-white text-[#E41513]'
+                        : 'border-[#CBD5E1] bg-white text-[#94A3B8]',
                   ].join(' ')}
                   aria-current={isActive ? 'step' : undefined}
                 >
@@ -68,7 +68,7 @@ function StepIndicator({ current }: { current: number }) {
                 <span
                   className={[
                     'mt-1.5 text-xs font-medium whitespace-nowrap',
-                    isActive ? 'text-[#C41E3A]' : isDone ? 'text-[#6B7280]' : 'text-[#9CA3AF]',
+                    isActive ? 'text-[#E41513]' : isDone ? 'text-[#64748B]' : 'text-[#94A3B8]',
                   ].join(' ')}
                 >
                   {step.label}
@@ -79,7 +79,7 @@ function StepIndicator({ current }: { current: number }) {
                   aria-hidden="true"
                   className={[
                     'h-0.5 w-10 sm:w-16 mx-1 mt-[-14px] transition-colors',
-                    step.id < current ? 'bg-[#C41E3A]' : 'bg-[#E5E7EB]',
+                    step.id < current ? 'bg-[#E41513]' : 'bg-[#E2E8F0]',
                   ].join(' ')}
                 />
               )}
@@ -95,10 +95,10 @@ function StepIndicator({ current }: { current: number }) {
 
 function SectionCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6">
+    <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
       <div className="mb-5">
-        <h2 className="text-lg font-semibold text-[#111827] font-['Sora',sans-serif]">{title}</h2>
-        {subtitle && <p className="mt-1 text-sm text-[#6B7280]">{subtitle}</p>}
+        <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif]">{title}</h2>
+        {subtitle && <p className="mt-1 text-sm text-[#64748B]">{subtitle}</p>}
       </div>
       {children}
     </div>
@@ -296,14 +296,14 @@ export default function ImportPostersPage() {
   const validCount = rows.filter((r) => r._valida).length
 
   return (
-    <main className="min-h-screen bg-[#F9FAFB]">
+    <main className="min-h-screen bg-[#F8FAFC]">
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Page header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
             <a
               href="/posters/history"
-              className="text-sm text-[#6B7280] hover:text-[#374151] transition-colors flex items-center gap-1"
+              className="text-sm text-[#64748B] hover:text-[#334155] transition-colors flex items-center gap-1"
             >
               <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -311,10 +311,10 @@ export default function ImportPostersPage() {
               Histórico
             </a>
           </div>
-          <h1 className="text-2xl font-bold text-[#111827] font-['Sora',sans-serif]">
+          <h1 className="text-2xl font-bold text-[#0F172A] font-['Sora',sans-serif]">
             Importar Pancartas via CSV
           </h1>
-          <p className="mt-1 text-sm text-[#6B7280]">
+          <p className="mt-1 text-sm text-[#64748B]">
             Envie um arquivo CSV com até 200 linhas para criar pancartas em lote.
           </p>
         </div>
@@ -341,11 +341,11 @@ export default function ImportPostersPage() {
               />
 
               {/* CSV format hint */}
-              <div className="mt-5 p-4 rounded-xl bg-[#F3F4F6] border border-[#E5E7EB]">
-                <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">
+              <div className="mt-5 p-4 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0]">
+                <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2">
                   Cabeçalho esperado do CSV
                 </p>
-                <code className="text-xs text-[#374151] font-mono break-all leading-relaxed">
+                <code className="text-xs text-[#334155] font-mono break-all leading-relaxed">
                   descricao_produto, preco_loja, preco_app_site, ean, codigo_produto, data_validade, canal_oferta, formato, loja, campanha
                 </code>
               </div>
@@ -450,8 +450,8 @@ export default function ImportPostersPage() {
                   href="/posters/history"
                   className={[
                     'inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all',
-                    'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6]',
-                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                    'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9]',
+                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                   ].join(' ')}
                 >
                   Aprovar depois no histórico
@@ -491,8 +491,8 @@ export default function ImportPostersPage() {
                       rel="noopener noreferrer"
                       className={[
                         'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all',
-                        'bg-[#C41E3A] text-white hover:bg-[#9B1830] shadow-sm',
-                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                        'bg-[#E41513] text-white hover:bg-[#C01211] shadow-sm',
+                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                       ].join(' ')}
                     >
                       <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -505,8 +505,8 @@ export default function ImportPostersPage() {
                       href="/posters/history"
                       className={[
                         'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all',
-                        'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6]',
-                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                        'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9]',
+                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                       ].join(' ')}
                     >
                       <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -519,8 +519,8 @@ export default function ImportPostersPage() {
                       href="/posters/import"
                       className={[
                         'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all',
-                        'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6]',
-                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                        'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9]',
+                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                       ].join(' ')}
                     >
                       <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -533,18 +533,18 @@ export default function ImportPostersPage() {
               ) : (
                 <>
                   {/* Created IDs list */}
-                  <div className="mb-5 p-4 rounded-xl bg-[#F3F4F6] border border-[#E5E7EB]">
-                    <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-2">
+                  <div className="mb-5 p-4 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0]">
+                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2">
                       IDs das pancartas criadas
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {confirmResult.ids.slice(0, 20).map((id) => (
-                        <code key={id} className="text-xs bg-white border border-[#E5E7EB] px-2 py-0.5 rounded text-[#374151]">
+                        <code key={id} className="text-xs bg-white border border-[#E2E8F0] px-2 py-0.5 rounded text-[#334155]">
                           {id.slice(0, 8)}…
                         </code>
                       ))}
                       {confirmResult.ids.length > 20 && (
-                        <span className="text-xs text-[#9CA3AF] self-center">
+                        <span className="text-xs text-[#94A3B8] self-center">
                           +{confirmResult.ids.length - 20} mais
                         </span>
                       )}
@@ -568,8 +568,8 @@ export default function ImportPostersPage() {
                       href="/posters/history"
                       className={[
                         'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all',
-                        'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6]',
-                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                        'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9]',
+                        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                       ].join(' ')}
                     >
                       Gerar depois no histórico

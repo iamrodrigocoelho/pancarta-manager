@@ -19,9 +19,9 @@ const sizeClasses: Record<SpinnerSize, string> = {
 }
 
 const colorClasses: Record<SpinnerColor, string> = {
-  red: 'border-[#C41E3A]/20 border-t-[#C41E3A]',
+  red: 'border-[#E41513]/20 border-t-[#E41513]',
   white: 'border-white/30 border-t-white',
-  gray: 'border-[#D1D5DB] border-t-[#6B7280]',
+  gray: 'border-[#CBD5E1] border-t-[#64748B]',
 }
 
 export function Spinner({

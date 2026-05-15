@@ -55,7 +55,7 @@ function TempPasswordBox({
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-sm text-[#374151]">
+      <p className="text-sm text-[#334155]">
         A senha temporária foi gerada. Copie e entregue ao usuário.
         {emailSent && (
           <span className="ml-1 text-emerald-600 font-medium">
@@ -63,14 +63,14 @@ function TempPasswordBox({
           </span>
         )}
       </p>
-      <div className="flex items-center gap-2 rounded-lg bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3">
-        <code className="flex-1 font-mono text-sm text-[#111827] select-all break-all">
+      <div className="flex items-center gap-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] px-4 py-3">
+        <code className="flex-1 font-mono text-sm text-[#0F172A] select-all break-all">
           {password}
         </code>
         <button
           onClick={() => void copy()}
           aria-label="Copiar senha"
-          className="flex items-center gap-1.5 text-xs font-medium text-[#C41E3A] hover:text-[#9B1830] transition-colors shrink-0"
+          className="flex items-center gap-1.5 text-xs font-medium text-[#E41513] hover:text-[#C01211] transition-colors shrink-0"
         >
           {copied ? (
             <>
@@ -104,7 +104,7 @@ function TempPasswordBox({
           )}
         </button>
       </div>
-      <p className="text-xs text-[#6B7280]">
+      <p className="text-xs text-[#64748B]">
         O usuário será obrigado a trocar a senha no próximo acesso.
       </p>
     </div>
@@ -268,14 +268,14 @@ export default function AdminUsersPage() {
       key: 'matricula',
       header: 'Matrícula',
       render: (v) => (
-        <span className="font-mono text-xs font-medium text-[#374151]">{String(v)}</span>
+        <span className="font-mono text-xs font-medium text-[#334155]">{String(v)}</span>
       ),
     },
     {
       key: 'nome',
       header: 'Nome',
       render: (v) => (
-        <span className="font-medium text-[#111827]">{String(v)}</span>
+        <span className="font-medium text-[#0F172A]">{String(v)}</span>
       ),
     },
     {
@@ -297,7 +297,7 @@ export default function AdminUsersPage() {
         const store = (row as unknown as UserRow).store
         if (!store) return null
         return (
-          <span className="text-xs text-[#6B7280]">
+          <span className="text-xs text-[#64748B]">
             {store.codigo} — {store.nome}
           </span>
         )
@@ -321,7 +321,7 @@ export default function AdminUsersPage() {
       render: (v) => {
         if (!v) return null
         return (
-          <span className="text-xs text-[#6B7280]">
+          <span className="text-xs text-[#64748B]">
             {new Date(String(v)).toLocaleString('pt-BR', {
               day: '2-digit',
               month: '2-digit',
@@ -408,7 +408,7 @@ export default function AdminUsersPage() {
               setPage(1)
             }}
             aria-label="Filtrar por status"
-            className="rounded-lg border border-[#D1D5DB] px-3.5 py-2.5 text-sm text-[#111827] bg-white focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none min-h-[44px] md:min-h-[48px]"
+            className="rounded-lg border border-[#CBD5E1] px-3.5 py-2.5 text-sm text-[#0F172A] bg-white focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none min-h-[44px] md:min-h-[48px]"
           >
             <option value="">Todos os status</option>
             <option value="ATIVO">Ativo</option>
@@ -430,7 +430,7 @@ export default function AdminUsersPage() {
       </div>
 
       {/* Summary */}
-      <p className="text-sm text-[#6B7280]">
+      <p className="text-sm text-[#64748B]">
         {total} usuário{total !== 1 ? 's' : ''} encontrado{total !== 1 ? 's' : ''}
       </p>
 
@@ -454,7 +454,7 @@ export default function AdminUsersPage() {
           >
             Anterior
           </Button>
-          <span className="text-sm text-[#6B7280]">
+          <span className="text-sm text-[#64748B]">
             Página {page} de {totalPages}
           </span>
           <Button
@@ -530,7 +530,7 @@ export default function AdminUsersPage() {
           </>
         }
       >
-        <p className="text-sm text-[#374151]">
+        <p className="text-sm text-[#334155]">
           Tem certeza que deseja resetar a senha de{' '}
           <strong>{confirmResetUser?.nome}</strong>? Uma nova senha temporária será gerada e o
           usuário precisará trocá-la no próximo acesso.

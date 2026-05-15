@@ -168,14 +168,14 @@ export function CsvUploader({
         className={[
           'flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed',
           'px-6 py-12 text-center transition-all duration-150 cursor-pointer select-none',
-          'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+          'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
           dragging
-            ? 'border-[#C41E3A] bg-[#FDECEA]/60 scale-[1.01] shadow-lg'
+            ? 'border-[#E41513] bg-[#FEE8E8]/60 scale-[1.01] shadow-lg'
             : localError
-              ? 'border-[#DC2626] bg-[#FDECEA]/20 hover:border-[#C41E3A] hover:bg-[#FDECEA]/30'
+              ? 'border-[#DC2626] bg-[#FEE8E8]/20 hover:border-[#E41513] hover:bg-[#FEE8E8]/30'
               : uploading
-                ? 'border-[#C41E3A]/30 bg-[#FDECEA]/20 cursor-wait'
-                : 'border-[#D1D5DB] bg-[#F9FAFB] hover:border-[#C41E3A]/60 hover:bg-[#FDECEA]/20',
+                ? 'border-[#E41513]/30 bg-[#FEE8E8]/20 cursor-wait'
+                : 'border-[#CBD5E1] bg-[#F8FAFC] hover:border-[#E41513]/60 hover:bg-[#FEE8E8]/20',
           !isInteractive ? 'opacity-60 pointer-events-none' : '',
         ].join(' ')}
       >
@@ -193,17 +193,17 @@ export function CsvUploader({
           <>
             <Spinner size="lg" color="red" />
             <div className="flex flex-col items-center gap-2.5 w-full max-w-xs">
-              <p className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]">
+              <p className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]">
                 Processando <strong>{fileName}</strong>…
               </p>
               {/* Progress bar */}
-              <div className="w-full h-1.5 rounded-full bg-[#E5E7EB] overflow-hidden" aria-hidden="true">
+              <div className="w-full h-1.5 rounded-full bg-[#E2E8F0] overflow-hidden" aria-hidden="true">
                 <div
-                  className="h-full rounded-full bg-[#C41E3A] transition-all duration-300"
+                  className="h-full rounded-full bg-[#E41513] transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <p className="text-xs text-[#9CA3AF]">{progress}%</p>
+              <p className="text-xs text-[#94A3B8]">{progress}%</p>
             </div>
           </>
         ) : (
@@ -213,8 +213,8 @@ export function CsvUploader({
               className={[
                 'flex items-center justify-center w-16 h-16 rounded-2xl border-2 transition-colors',
                 dragging
-                  ? 'border-[#C41E3A] bg-[#FDECEA] text-[#C41E3A]'
-                  : 'border-[#E5E7EB] bg-white text-[#9CA3AF]',
+                  ? 'border-[#E41513] bg-[#FEE8E8] text-[#E41513]'
+                  : 'border-[#E2E8F0] bg-white text-[#94A3B8]',
               ].join(' ')}
               aria-hidden="true"
             >
@@ -224,15 +224,15 @@ export function CsvUploader({
             </div>
 
             <div>
-              <p className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]">
+              <p className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]">
                 {dragging ? 'Solte o arquivo aqui' : label}
               </p>
-              <p className="text-xs text-[#9CA3AF] mt-1">
-                Somente <strong className="text-[#6B7280]">.csv</strong>
+              <p className="text-xs text-[#94A3B8] mt-1">
+                Somente <strong className="text-[#64748B]">.csv</strong>
                 {' '}·{' '}
-                Máximo <strong className="text-[#6B7280]">{maxSizeMB}MB</strong>
+                Máximo <strong className="text-[#64748B]">{maxSizeMB}MB</strong>
                 {' '}·{' '}
-                Máximo <strong className="text-[#6B7280]">200 linhas</strong>
+                Máximo <strong className="text-[#64748B]">200 linhas</strong>
               </p>
             </div>
 
@@ -259,7 +259,7 @@ export function CsvUploader({
       {localError && !uploading && (
         <div
           role="alert"
-          className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-[#FDECEA] border border-[#FCA5A5] text-sm text-[#C41E3A]"
+          className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-[#FEE8E8] border border-[#FCA5A5] text-sm text-[#E41513]"
         >
           <svg aria-hidden="true" className="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />

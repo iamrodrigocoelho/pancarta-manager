@@ -34,10 +34,10 @@ function StepIndicator({ current }: { current: number }) {
                   className={[
                     'flex items-center justify-center w-8 h-8 rounded-full border-2 text-sm font-bold transition-all',
                     isDone
-                      ? 'border-[#C41E3A] bg-[#C41E3A] text-white'
+                      ? 'border-[#E41513] bg-[#E41513] text-white'
                       : isActive
-                        ? 'border-[#C41E3A] bg-white text-[#C41E3A]'
-                        : 'border-[#D1D5DB] bg-white text-[#9CA3AF]',
+                        ? 'border-[#E41513] bg-white text-[#E41513]'
+                        : 'border-[#CBD5E1] bg-white text-[#94A3B8]',
                   ].join(' ')}
                   aria-current={isActive ? 'step' : undefined}
                 >
@@ -52,7 +52,7 @@ function StepIndicator({ current }: { current: number }) {
                 <span
                   className={[
                     'mt-1.5 text-xs font-medium whitespace-nowrap',
-                    isActive ? 'text-[#C41E3A]' : isDone ? 'text-[#6B7280]' : 'text-[#9CA3AF]',
+                    isActive ? 'text-[#E41513]' : isDone ? 'text-[#64748B]' : 'text-[#94A3B8]',
                   ].join(' ')}
                 >
                   {step.label}
@@ -63,7 +63,7 @@ function StepIndicator({ current }: { current: number }) {
                   aria-hidden="true"
                   className={[
                     'h-0.5 w-10 sm:w-16 mx-1 mt-[-14px] transition-colors',
-                    step.id < current ? 'bg-[#C41E3A]' : 'bg-[#E5E7EB]',
+                    step.id < current ? 'bg-[#E41513]' : 'bg-[#E2E8F0]',
                   ].join(' ')}
                 />
               )}
@@ -169,14 +169,14 @@ export default function NewPosterPage() {
   const canSkipApproval = !isLoja && (posterStatus === 'RASCUNHO' || posterStatus === 'APROVADA_PELA_LOJA')
 
   return (
-    <main className="min-h-screen bg-[#F9FAFB]">
-      <div className="max-w-3xl mx-auto px-4 py-8">
+    <main className="min-h-screen bg-[#F8FAFC]">
+      <div className="max-w-3xl ml-0 mr-auto pl-14 pr-8 py-8">
         {/* Page header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
             <a
               href="/posters/history"
-              className="text-sm text-[#6B7280] hover:text-[#374151] transition-colors flex items-center gap-1"
+              className="text-sm text-[#64748B] hover:text-[#334155] transition-colors flex items-center gap-1"
             >
               <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -184,10 +184,10 @@ export default function NewPosterPage() {
               Histórico
             </a>
           </div>
-          <h1 className="text-2xl font-bold text-[#111827] font-['Sora',sans-serif]">
+          <h1 className="text-2xl font-bold text-[#0F172A] font-['Sora',sans-serif]">
             Nova Pancarta
           </h1>
-          <p className="mt-1 text-sm text-[#6B7280]">
+          <p className="mt-1 text-sm text-[#64748B]">
             Crie uma pancarta promocional manualmente.
           </p>
         </div>
@@ -199,8 +199,8 @@ export default function NewPosterPage() {
 
         {/* ── Step 1: Form ── */}
         {step === 1 && (
-          <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-[#111827] font-['Sora',sans-serif] mb-5">
+          <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+            <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif] mb-5">
               Dados da Pancarta
             </h2>
             <PosterForm session={session} onSuccess={handleFormSuccess} />
@@ -211,8 +211,8 @@ export default function NewPosterPage() {
         {step >= 2 && createdPoster && (
           <div className="flex flex-col gap-6">
             {/* Preview card */}
-            <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-[#111827] font-['Sora',sans-serif] mb-5">
+            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif] mb-5">
                 Pré-visualização
               </h2>
               <div className="flex justify-center">
@@ -230,8 +230,8 @@ export default function NewPosterPage() {
 
             {/* Action panel */}
             {step < 4 && (
-              <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6">
-                <h2 className="text-lg font-semibold text-[#111827] font-['Sora',sans-serif] mb-2">
+              <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
+                <h2 className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif] mb-2">
                   {isLoja
                     ? posterStatus === 'AGUARDANDO_CONFERENCIA'
                       ? 'Conferir e Aprovar'
@@ -240,7 +240,7 @@ export default function NewPosterPage() {
                         : 'Próximo passo'
                     : 'Gerar PDF'}
                 </h2>
-                <p className="text-sm text-[#6B7280] mb-5">
+                <p className="text-sm text-[#64748B] mb-5">
                   {isLoja
                     ? posterStatus === 'AGUARDANDO_CONFERENCIA'
                       ? 'Revise os dados acima com atenção. Ao aprovar, o sistema liberará a geração do PDF.'
@@ -314,7 +314,7 @@ export default function NewPosterPage() {
 
             {/* ── Step 4: PDF ready ── */}
             {step === 4 && pdfResult && (
-              <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6">
+              <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6">
                 {/* Success banner */}
                 <div className="flex items-center gap-3 mb-5 px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-200">
                   <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 shrink-0">
@@ -337,8 +337,8 @@ export default function NewPosterPage() {
                     rel="noopener noreferrer"
                     className={[
                       'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all',
-                      'bg-[#C41E3A] text-white hover:bg-[#9B1830] shadow-sm',
-                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                      'bg-[#E41513] text-white hover:bg-[#C01211] shadow-sm',
+                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                     ].join(' ')}
                   >
                     <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -351,8 +351,8 @@ export default function NewPosterPage() {
                     href="/posters/history"
                     className={[
                       'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all',
-                      'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6]',
-                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                      'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9]',
+                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                     ].join(' ')}
                   >
                     <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -365,8 +365,8 @@ export default function NewPosterPage() {
                     href="/posters/new"
                     className={[
                       'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all',
-                      'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6]',
-                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                      'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9]',
+                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                     ].join(' ')}
                   >
                     <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -99,9 +99,9 @@ function ArrowRightIcon() {
 
 const accentConfig = {
   red: {
-    bg: 'bg-[#FDECEA]',
-    icon: 'text-[#C41E3A]',
-    value: 'text-[#C41E3A]',
+    bg: 'bg-[#FEE8E8]',
+    icon: 'text-[#E41513]',
+    value: 'text-[#E41513]',
   },
   amber: {
     bg: 'bg-[#FFF7ED]',
@@ -124,7 +124,7 @@ function StatCard({ icon, value, label, accent = 'red' }: StatCardProps) {
   const cfg = accentConfig[accent]
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E5E7EB] p-5 flex items-center gap-4 shadow-sm">
+    <div className="bg-white rounded-2xl border border-[#E2E8F0] p-5 flex items-center gap-4 shadow-sm">
       <div className={['w-12 h-12 rounded-xl flex items-center justify-center shrink-0', cfg.bg, cfg.icon].join(' ')}>
         {icon}
       </div>
@@ -132,7 +132,7 @@ function StatCard({ icon, value, label, accent = 'red' }: StatCardProps) {
         <p className={['text-2xl font-extrabold leading-none', cfg.value].join(' ')} style={{ fontFamily: "'Sora', sans-serif" }}>
           {value}
         </p>
-        <p className="mt-1 text-xs text-[#6B7280] font-medium">{label}</p>
+        <p className="mt-1 text-xs text-[#64748B] font-medium">{label}</p>
       </div>
     </div>
   )
@@ -148,15 +148,15 @@ function ActionCard({ href, icon, title, description, accent = false }: ActionCa
         'group relative flex flex-col gap-3 rounded-2xl border p-5 min-h-[140px]',
         'transition-all duration-200 shadow-sm',
         'hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm',
-        'focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+        'focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
         accent
-          ? 'bg-[#C41E3A] border-[#9B1830] text-white'
-          : 'bg-white border-[#E5E7EB] text-[#111827] hover:border-[#C41E3A]/30',
+          ? 'bg-[#E41513] border-[#C01211] text-white'
+          : 'bg-white border-[#E2E8F0] text-[#0F172A] hover:border-[#E41513]/30',
       ].join(' ')}
     >
       <div className={[
         'w-10 h-10 rounded-xl flex items-center justify-center shrink-0',
-        accent ? 'bg-white/15 text-white' : 'bg-[#FDECEA] text-[#C41E3A]',
+        accent ? 'bg-white/15 text-white' : 'bg-[#FEE8E8] text-[#E41513]',
       ].join(' ')}>
         {icon}
       </div>
@@ -164,13 +164,13 @@ function ActionCard({ href, icon, title, description, accent = false }: ActionCa
       <div className="flex-1">
         <p className={[
           'font-bold text-sm leading-tight',
-          accent ? 'text-white' : 'text-[#111827]',
+          accent ? 'text-white' : 'text-[#0F172A]',
         ].join(' ')} style={{ fontFamily: "'Sora', sans-serif" }}>
           {title}
         </p>
         <p className={[
           'mt-1 text-xs leading-relaxed',
-          accent ? 'text-white/75' : 'text-[#6B7280]',
+          accent ? 'text-white/75' : 'text-[#64748B]',
         ].join(' ')}>
           {description}
         </p>
@@ -178,7 +178,7 @@ function ActionCard({ href, icon, title, description, accent = false }: ActionCa
 
       <span className={[
         'absolute bottom-4 right-4 transition-transform duration-200 group-hover:translate-x-0.5',
-        accent ? 'text-white/60' : 'text-[#9CA3AF]',
+        accent ? 'text-white/60' : 'text-[#94A3B8]',
       ].join(' ')}>
         <ArrowRightIcon />
       </span>
@@ -203,7 +203,7 @@ function WelcomeBanner({ nome, lojaNome, perfil }: { nome: string; lojaNome: str
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#C41E3A] to-[#9B1830] px-6 py-5 text-white shadow-md">
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#E41513] to-[#C01211] px-6 py-5 text-white shadow-md">
       {/* Pattern */}
       <div
         className="absolute inset-0 opacity-[0.07] pointer-events-none"
@@ -262,8 +262,8 @@ function WelcomeBanner({ nome, lojaNome, perfil }: { nome: string; lojaNome: str
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <h3
-      className="text-xs font-semibold uppercase tracking-widest text-[#9CA3AF]"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8]"
+      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
     >
       {children}
     </h3>
@@ -415,7 +415,7 @@ export default async function DashboardPage() {
       )}
 
       {/* Footer note */}
-      <p className="text-center text-xs text-[#9CA3AF] pb-2">
+      <p className="text-center text-xs text-[#94A3B8] pb-2">
         Pancartas e PDFs são retidos por 2 dias e removidos automaticamente após esse período.
       </p>
     </div>

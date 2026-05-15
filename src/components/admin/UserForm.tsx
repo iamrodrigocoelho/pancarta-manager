@@ -173,19 +173,19 @@ export function UserForm({ user, stores, onSuccess, onCancel }: UserFormProps) {
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor="user-perfil"
-          className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+          className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
         >
-          Perfil <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+          Perfil <span className="text-[#E41513]" aria-hidden="true">*</span>
         </label>
         <select
           id="user-perfil"
           className={[
-            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#111827]',
-            "font-['DM_Sans',sans-serif] bg-white",
+            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#0F172A]',
+            "font-['Plus_Jakarta_Sans',sans-serif] bg-white",
             'md:min-h-[48px] min-h-[44px] transition-colors duration-150',
             errors.perfil
               ? 'border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
-              : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+              : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
           ].join(' ')}
           {...register('perfil')}
         >
@@ -205,19 +205,19 @@ export function UserForm({ user, stores, onSuccess, onCancel }: UserFormProps) {
         <div className="flex flex-col gap-1.5">
           <label
             htmlFor="user-loja"
-            className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+            className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
           >
-            Loja <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+            Loja <span className="text-[#E41513]" aria-hidden="true">*</span>
           </label>
           <select
             id="user-loja"
             className={[
-              'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#111827]',
-              "font-['DM_Sans',sans-serif] bg-white",
+              'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#0F172A]',
+              "font-['Plus_Jakarta_Sans',sans-serif] bg-white",
               'md:min-h-[48px] min-h-[44px] transition-colors duration-150',
               errors.lojaId
                 ? 'border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
-                : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+                : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
             ].join(' ')}
             {...register('lojaId')}
           >
@@ -241,19 +241,19 @@ export function UserForm({ user, stores, onSuccess, onCancel }: UserFormProps) {
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor="user-status"
-          className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+          className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
         >
-          Status <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+          Status <span className="text-[#E41513]" aria-hidden="true">*</span>
         </label>
         <select
           id="user-status"
           className={[
-            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#111827]',
-            "font-['DM_Sans',sans-serif] bg-white",
+            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#0F172A]',
+            "font-['Plus_Jakarta_Sans',sans-serif] bg-white",
             'md:min-h-[48px] min-h-[44px] transition-colors duration-150',
             errors.status
               ? 'border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
-              : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+              : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
           ].join(' ')}
           {...register('status')}
         >

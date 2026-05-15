@@ -24,7 +24,7 @@ interface TableProps<T extends object> {
 
 function SkeletonRow({ cols }: { cols: number }) {
   return (
-    <tr className="border-b border-[#F3F4F6]">
+    <tr className="border-b border-[#F1F5F9]">
       {Array.from({ length: cols }).map((_, i) => (
         <td key={i} className="px-4 py-3">
           <div
@@ -48,7 +48,7 @@ function EmptyState({ message }: { message: string }) {
         <div className="flex flex-col items-center gap-3">
           <svg
             aria-hidden="true"
-            className="w-10 h-10 text-[#D1D5DB]"
+            className="w-10 h-10 text-[#CBD5E1]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -60,7 +60,7 @@ function EmptyState({ message }: { message: string }) {
               d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776"
             />
           </svg>
-          <p className="text-sm text-[#6B7280] font-['DM_Sans',sans-serif]">{message}</p>
+          <p className="text-sm text-[#64748B] font-['Plus_Jakarta_Sans',sans-serif]">{message}</p>
         </div>
       </td>
     </tr>
@@ -81,19 +81,19 @@ export function Table<T extends object>({
   return (
     <div
       className={[
-        'w-full overflow-x-auto rounded-xl border border-[#E5E7EB] shadow-sm bg-white',
+        'w-full overflow-x-auto rounded-xl border border-[#E2E8F0] shadow-sm bg-white',
         className,
       ].join(' ')}
     >
-      <table className="min-w-full divide-y divide-[#F3F4F6] text-sm font-['DM_Sans',sans-serif]">
+      <table className="min-w-full divide-y divide-[#F1F5F9] text-sm font-['Plus_Jakarta_Sans',sans-serif]">
         {/* Head */}
-        <thead className="bg-[#F9FAFB]">
+        <thead className="bg-[#F8FAFC]">
           <tr>
             {columns.map((col) => (
               <th
                 key={col.key}
                 scope="col"
-                className="px-4 py-3 text-left text-xs font-semibold text-[#6B7280] uppercase tracking-wider whitespace-nowrap"
+                className="px-4 py-3 text-left text-xs font-semibold text-[#64748B] uppercase tracking-wider whitespace-nowrap"
               >
                 {col.header}
               </th>
@@ -102,7 +102,7 @@ export function Table<T extends object>({
         </thead>
 
         {/* Body */}
-        <tbody className="divide-y divide-[#F3F4F6]">
+        <tbody className="divide-y divide-[#F1F5F9]">
           {loading ? (
             Array.from({ length: skeletonRows }).map((_, i) => (
               <SkeletonRow key={i} cols={columns.length} />
@@ -115,7 +115,7 @@ export function Table<T extends object>({
               return (
                 <tr
                   key={key}
-                  className="hover:bg-[#F9FAFB] transition-colors duration-100"
+                  className="hover:bg-[#F8FAFC] transition-colors duration-100"
                 >
                   {columns.map((col) => {
                     const rawValue = (row as Record<string, unknown>)[col.key]
@@ -126,9 +126,9 @@ export function Table<T extends object>({
                     return (
                       <td
                         key={col.key}
-                        className="px-4 py-3 text-[#374151] align-middle"
+                        className="px-4 py-3 text-[#334155] align-middle"
                       >
-                        {cell ?? <span className="text-[#9CA3AF]">—</span>}
+                        {cell ?? <span className="text-[#94A3B8]">—</span>}
                       </td>
                     )
                   })}

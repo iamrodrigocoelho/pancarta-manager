@@ -34,7 +34,7 @@ function ValidationTable({ rows, onRemove }: ValidationTableProps) {
     <div className="flex flex-col gap-4">
       {/* Summary chips */}
       <div className="flex items-center gap-3 flex-wrap">
-        <span className="text-sm font-medium text-[#374151]">
+        <span className="text-sm font-medium text-[#334155]">
           {rows.length} linha{rows.length !== 1 ? 's' : ''} importada{rows.length !== 1 ? 's' : ''}
         </span>
         {valid > 0 && (
@@ -46,15 +46,15 @@ function ValidationTable({ rows, onRemove }: ValidationTableProps) {
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto rounded-xl border border-[#E5E7EB] shadow-sm bg-white">
-        <table className="min-w-full divide-y divide-[#F3F4F6] text-sm font-['DM_Sans',sans-serif]">
-          <thead className="bg-[#F9FAFB]">
+      <div className="w-full overflow-x-auto rounded-xl border border-[#E2E8F0] shadow-sm bg-white">
+        <table className="min-w-full divide-y divide-[#F1F5F9] text-sm font-['Plus_Jakarta_Sans',sans-serif]">
+          <thead className="bg-[#F8FAFC]">
             <tr>
               {['Linha', 'Matrícula', 'Nome', 'E-mail', 'Loja', 'Perfil', 'Status', ''].map(
                 (h) => (
                   <th
                     key={h}
-                    className="px-4 py-3 text-left text-xs font-semibold text-[#6B7280] uppercase tracking-wider whitespace-nowrap"
+                    className="px-4 py-3 text-left text-xs font-semibold text-[#64748B] uppercase tracking-wider whitespace-nowrap"
                   >
                     {h}
                   </th>
@@ -62,19 +62,19 @@ function ValidationTable({ rows, onRemove }: ValidationTableProps) {
               )}
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#F3F4F6]">
+          <tbody className="divide-y divide-[#F1F5F9]">
             {rows.map((row) => (
               <tr
                 key={row._linha}
-                className={row._valida ? 'hover:bg-[#F9FAFB]' : 'bg-red-50 hover:bg-red-100'}
+                className={row._valida ? 'hover:bg-[#F8FAFC]' : 'bg-red-50 hover:bg-red-100'}
               >
-                <td className="px-4 py-3 text-[#6B7280] text-xs">{row._linha}</td>
+                <td className="px-4 py-3 text-[#64748B] text-xs">{row._linha}</td>
                 <td className="px-4 py-3">
                   <span className="font-mono text-xs">{row.matricula}</span>
                 </td>
-                <td className="px-4 py-3 text-[#374151]">{row.nome}</td>
-                <td className="px-4 py-3 text-[#6B7280] text-xs">{row.email ?? '—'}</td>
-                <td className="px-4 py-3 text-[#6B7280] text-xs">{row.loja ?? '—'}</td>
+                <td className="px-4 py-3 text-[#334155]">{row.nome}</td>
+                <td className="px-4 py-3 text-[#64748B] text-xs">{row.email ?? '—'}</td>
+                <td className="px-4 py-3 text-[#64748B] text-xs">{row.loja ?? '—'}</td>
                 <td className="px-4 py-3">
                   <Badge variant="neutral">{row.perfil}</Badge>
                 </td>
@@ -96,7 +96,7 @@ function ValidationTable({ rows, onRemove }: ValidationTableProps) {
                       </ul>
                       <button
                         onClick={() => onRemove(row._linha)}
-                        className="mt-1 text-[10px] text-[#C41E3A] hover:underline text-left"
+                        className="mt-1 text-[10px] text-[#E41513] hover:underline text-left"
                         aria-label={`Remover linha ${row._linha}`}
                       >
                         Remover linha
@@ -123,8 +123,8 @@ interface ImportResult {
 
 function ResultBox({ result }: { result: ImportResult }) {
   return (
-    <div className="rounded-xl border border-[#E5E7EB] bg-white p-5 flex flex-col gap-3">
-      <h3 className="font-semibold text-[#111827] text-base">Resultado da importação</h3>
+    <div className="rounded-xl border border-[#E2E8F0] bg-white p-5 flex flex-col gap-3">
+      <h3 className="font-semibold text-[#0F172A] text-base">Resultado da importação</h3>
       <div className="flex gap-4 flex-wrap">
         <div className="flex items-center gap-2">
           <Badge variant="success">{result.created} criado{result.created !== 1 ? 's' : ''}</Badge>

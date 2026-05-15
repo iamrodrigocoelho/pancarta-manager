@@ -128,13 +128,13 @@ function StoreForm({ store, regionals, onSuccess, onCancel }: StoreFormProps) {
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor="store-regional"
-          className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+          className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
         >
           Regional
         </label>
         <select
           id="store-regional"
-          className="w-full rounded-lg border border-[#D1D5DB] px-3.5 py-2.5 text-sm text-[#111827] bg-white focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF] md:min-h-[48px] min-h-[44px]"
+          className="w-full rounded-lg border border-[#CBD5E1] px-3.5 py-2.5 text-sm text-[#0F172A] bg-white focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8] md:min-h-[48px] min-h-[44px]"
           {...register('regionalId')}
         >
           <option value="">Sem regional</option>
@@ -150,13 +150,13 @@ function StoreForm({ store, regionals, onSuccess, onCancel }: StoreFormProps) {
       <div className="flex flex-col gap-1.5">
         <label
           htmlFor="store-status"
-          className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+          className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
         >
-          Status <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+          Status <span className="text-[#E41513]" aria-hidden="true">*</span>
         </label>
         <select
           id="store-status"
-          className="w-full rounded-lg border border-[#D1D5DB] px-3.5 py-2.5 text-sm text-[#111827] bg-white focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF] md:min-h-[48px] min-h-[44px]"
+          className="w-full rounded-lg border border-[#CBD5E1] px-3.5 py-2.5 text-sm text-[#0F172A] bg-white focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8] md:min-h-[48px] min-h-[44px]"
           {...register('status')}
         >
           <option value="ATIVO">Ativo</option>
@@ -256,14 +256,14 @@ export default function AdminStoresPage() {
       key: 'codigo',
       header: 'Código',
       render: (v) => (
-        <span className="font-mono text-xs font-medium text-[#374151]">{String(v)}</span>
+        <span className="font-mono text-xs font-medium text-[#334155]">{String(v)}</span>
       ),
     },
     {
       key: 'nome',
       header: 'Nome',
       render: (v) => (
-        <span className="font-medium text-[#111827]">{String(v)}</span>
+        <span className="font-medium text-[#0F172A]">{String(v)}</span>
       ),
     },
     {
@@ -272,7 +272,7 @@ export default function AdminStoresPage() {
       render: (_, row) => {
         const s = row as unknown as StoreRow
         return s.regional ? (
-          <span className="text-xs text-[#6B7280]">{s.regional.nome}</span>
+          <span className="text-xs text-[#64748B]">{s.regional.nome}</span>
         ) : null
       },
     },
@@ -333,7 +333,7 @@ export default function AdminStoresPage() {
     <div className="flex flex-col gap-6">
       {/* Top bar */}
       <div className="flex items-center justify-between gap-4">
-        <p className="text-sm text-[#6B7280]">
+        <p className="text-sm text-[#64748B]">
           {stores.length} loja{stores.length !== 1 ? 's' : ''} cadastrada{stores.length !== 1 ? 's' : ''}
         </p>
         <Button variant="primary" size="md" onClick={() => setCreateOpen(true)}>

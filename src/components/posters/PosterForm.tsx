@@ -97,10 +97,10 @@ function FormatoCard({
       onClick={onClick}
       aria-pressed={selected}
       className={[
-        'relative flex flex-col items-center justify-center gap-2 rounded-xl border-2 p-4 cursor-pointer transition-all duration-150 select-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+        'relative flex flex-col items-center justify-center gap-2 rounded-xl border-2 p-4 cursor-pointer transition-all duration-150 select-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
         selected
-          ? 'border-[#C41E3A] bg-[#FDECEA] shadow-md'
-          : 'border-[#E5E7EB] bg-white hover:border-[#C41E3A]/40 hover:bg-[#FDECEA]/30',
+          ? 'border-[#E41513] bg-[#FEE8E8] shadow-md'
+          : 'border-[#E2E8F0] bg-white hover:border-[#E41513]/40 hover:bg-[#FEE8E8]/30',
       ].join(' ')}
     >
       {/* Paper icon */}
@@ -108,12 +108,12 @@ function FormatoCard({
         className={[
           'flex items-end justify-center rounded border-2 transition-colors',
           isA4 ? 'w-10 h-14' : 'w-12 h-9',
-          selected ? 'border-[#C41E3A] bg-[#C41E3A]/10' : 'border-[#D1D5DB] bg-[#F9FAFB]',
+          selected ? 'border-[#E41513] bg-[#E41513]/10' : 'border-[#CBD5E1] bg-[#F8FAFC]',
         ].join(' ')}
         aria-hidden="true"
       >
         {selected && (
-          <span className="mb-1 text-[#C41E3A]">
+          <span className="mb-1 text-[#E41513]">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clipRule="evenodd" />
             </svg>
@@ -121,15 +121,15 @@ function FormatoCard({
         )}
       </div>
       <div className="text-center">
-        <p className={['font-bold text-base font-[\'Sora\',sans-serif]', selected ? 'text-[#C41E3A]' : 'text-[#374151]'].join(' ')}>
+        <p className={['font-bold text-base font-[\'Sora\',sans-serif]', selected ? 'text-[#E41513]' : 'text-[#334155]'].join(' ')}>
           {value}
         </p>
-        <p className="text-xs text-[#6B7280] mt-0.5">
+        <p className="text-xs text-[#64748B] mt-0.5">
           {isA4 ? '210 × 297 mm' : '105 × 148 mm'}
         </p>
       </div>
       {selected && (
-        <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#C41E3A]" aria-hidden="true" />
+        <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#E41513]" aria-hidden="true" />
       )}
     </button>
   )
@@ -149,9 +149,9 @@ function PriceInput({
 }) {
   return (
     <div className={['flex flex-col gap-1.5 w-full rounded-xl p-3 -m-3', highlighted ? 'bg-[#FFF8DC] border border-[#FFD700]/50' : ''].join(' ')}>
-      <label htmlFor={id} className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]">
+      <label htmlFor={id} className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]">
         {label}
-        <span className="ml-1 text-[#C41E3A]" aria-hidden="true">*</span>
+        <span className="ml-1 text-[#E41513]" aria-hidden="true">*</span>
         {highlighted && (
           <span className="ml-2 text-xs font-semibold text-[#B8860B] bg-[#FFD700]/30 px-1.5 py-0.5 rounded-full">
             APP/SITE
@@ -164,7 +164,7 @@ function PriceInput({
             'flex items-center px-3 rounded-l-lg border border-r-0 h-[44px] md:h-[48px] text-sm font-medium shrink-0',
             highlighted
               ? 'bg-[#FFD700]/40 border-[#FFD700] text-[#7C6200]'
-              : 'bg-[#F3F4F6] border-[#D1D5DB] text-[#6B7280]',
+              : 'bg-[#F1F5F9] border-[#CBD5E1] text-[#64748B]',
             error ? 'border-[#DC2626]' : '',
           ].join(' ')}
           aria-hidden="true"
@@ -177,14 +177,14 @@ function PriceInput({
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           className={[
-            'flex-1 rounded-r-lg border px-3.5 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF]',
-            'font-[\'DM_Sans\',sans-serif] md:min-h-[48px] min-h-[44px] transition-colors duration-150',
+            'flex-1 rounded-r-lg border px-3.5 py-2.5 text-sm text-[#0F172A] placeholder:text-[#94A3B8]',
+            'font-[\'Plus_Jakarta_Sans\',sans-serif] md:min-h-[48px] min-h-[44px] transition-colors duration-150',
             highlighted ? 'font-bold text-base bg-[#FFFBEA]' : 'bg-white',
             error
               ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
               : highlighted
                 ? 'border-[#FFD700] focus:border-[#B8860B] focus:ring-2 focus:ring-[#FFD700]/40 focus:outline-none hover:border-[#B8860B]'
-                : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+                : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
           ].join(' ')}
           {...props}
         />
@@ -304,7 +304,7 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
       {serverError && (
         <div
           role="alert"
-          className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-[#FDECEA] border border-[#FCA5A5] text-sm text-[#C41E3A]"
+          className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-[#FEE8E8] border border-[#FCA5A5] text-sm text-[#E41513]"
         >
           <svg aria-hidden="true" className="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -316,11 +316,11 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
       {/* Formato */}
       <div className="flex flex-col gap-2">
         <fieldset>
-          <legend className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif] mb-3">
-            Formato da Pancarta <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+          <legend className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif] mb-3">
+            Formato da Pancarta <span className="text-[#E41513]" aria-hidden="true">*</span>
           </legend>
           {loadingTemplates ? (
-            <div className="flex items-center gap-2 text-sm text-[#6B7280]">
+            <div className="flex items-center gap-2 text-sm text-[#64748B]">
               <Spinner size="sm" /> Carregando formatos…
             </div>
           ) : (
@@ -354,8 +354,8 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
 
       {/* Descrição */}
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="descricaoProduto" className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]">
-          Descrição do Produto <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+        <label htmlFor="descricaoProduto" className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]">
+          Descrição do Produto <span className="text-[#E41513]" aria-hidden="true">*</span>
         </label>
         <textarea
           id="descricaoProduto"
@@ -364,11 +364,11 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
           aria-invalid={!!errors.descricaoProduto}
           aria-describedby={errors.descricaoProduto ? 'descricaoProduto-error' : undefined}
           className={[
-            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF]',
-            "font-['DM_Sans',sans-serif] resize-none transition-colors duration-150 bg-white",
+            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#0F172A] placeholder:text-[#94A3B8]',
+            "font-['Plus_Jakarta_Sans',sans-serif] resize-none transition-colors duration-150 bg-white",
             errors.descricaoProduto
               ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
-              : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+              : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
           ].join(' ')}
           {...register('descricaoProduto')}
         />
@@ -449,19 +449,19 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
         />
 
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="canalOferta" className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]">
-            Canal da Oferta <span className="text-[#C41E3A]" aria-hidden="true">*</span>
+          <label htmlFor="canalOferta" className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]">
+            Canal da Oferta <span className="text-[#E41513]" aria-hidden="true">*</span>
           </label>
           <select
             id="canalOferta"
             aria-invalid={!!errors.canalOferta}
             aria-describedby={errors.canalOferta ? 'canalOferta-error' : undefined}
             className={[
-              'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#111827]',
-              "font-['DM_Sans',sans-serif] md:min-h-[48px] min-h-[44px] transition-colors duration-150 bg-white appearance-none cursor-pointer",
+              'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#0F172A]',
+              "font-['Plus_Jakarta_Sans',sans-serif] md:min-h-[48px] min-h-[44px] transition-colors duration-150 bg-white appearance-none cursor-pointer",
               errors.canalOferta
                 ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
-                : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+                : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
             ].join(' ')}
             {...register('canalOferta')}
           >
@@ -494,7 +494,7 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
 
       {/* Observações (optional) */}
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="observacoes" className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]">
+        <label htmlFor="observacoes" className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]">
           Observações internas (opcional)
         </label>
         <textarea
@@ -502,9 +502,9 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
           rows={2}
           placeholder="Notas internas sobre esta pancarta…"
           className={[
-            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF]',
-            "font-['DM_Sans',sans-serif] resize-none transition-colors duration-150 bg-white",
-            'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
+            'w-full rounded-lg border px-3.5 py-2.5 text-sm text-[#0F172A] placeholder:text-[#94A3B8]',
+            "font-['Plus_Jakarta_Sans',sans-serif] resize-none transition-colors duration-150 bg-white",
+            'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
           ].join(' ')}
           {...register('observacoes')}
         />
@@ -512,18 +512,18 @@ export function PosterForm({ session, onSuccess }: PosterFormProps) {
 
       {/* Texto legal preview */}
       <div
-        className="flex flex-col gap-2 p-4 rounded-xl bg-[#F3F4F6] border border-[#E5E7EB]"
+        className="flex flex-col gap-2 p-4 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0]"
         aria-live="polite"
       >
-        <div className="flex items-center gap-2 text-xs font-semibold text-[#6B7280] uppercase tracking-wider">
-          <svg aria-hidden="true" className="w-4 h-4 text-[#9CA3AF]" fill="currentColor" viewBox="0 0 20 20">
+        <div className="flex items-center gap-2 text-xs font-semibold text-[#64748B] uppercase tracking-wider">
+          <svg aria-hidden="true" className="w-4 h-4 text-[#94A3B8]" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
           </svg>
           Texto legal (gerado automaticamente — não editável)
         </div>
-        <p className="text-xs text-[#374151] leading-relaxed font-mono">
+        <p className="text-xs text-[#334155] leading-relaxed font-mono">
           {textoLegalPreview || (
-            <span className="text-[#9CA3AF] italic">
+            <span className="text-[#94A3B8] italic">
               Preencha data de validade, canal da oferta, EAN e código do produto para visualizar o texto legal.
             </span>
           )}

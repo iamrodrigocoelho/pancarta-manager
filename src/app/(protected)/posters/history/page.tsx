@@ -51,7 +51,7 @@ function SelectFilter({
 }) {
   return (
     <div className="flex flex-col gap-1">
-      <label htmlFor={id} className="text-xs font-medium text-[#6B7280] sr-only">
+      <label htmlFor={id} className="text-xs font-medium text-[#64748B] sr-only">
         {label}
       </label>
       <select
@@ -60,9 +60,9 @@ function SelectFilter({
         onChange={(e) => onChange(e.target.value)}
         aria-label={label}
         className={[
-          'rounded-lg border border-[#D1D5DB] bg-white px-3 py-2 text-sm text-[#374151]',
-          "font-['DM_Sans',sans-serif] min-h-[40px] transition-colors",
-          'focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none appearance-none cursor-pointer',
+          'rounded-lg border border-[#CBD5E1] bg-white px-3 py-2 text-sm text-[#334155]',
+          "font-['Plus_Jakarta_Sans',sans-serif] min-h-[40px] transition-colors",
+          'focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none appearance-none cursor-pointer',
         ].join(' ')}
       >
         {options.map((o) => (
@@ -100,7 +100,7 @@ function Pagination({
         onClick={() => onChange(page - 1)}
         disabled={page <= 1}
         aria-label="Página anterior"
-        className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F3F4F6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+        className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#CBD5E1] bg-white text-[#334155] hover:bg-[#F1F5F9] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
       >
         <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -109,8 +109,8 @@ function Pagination({
 
       {start > 1 && (
         <>
-          <button onClick={() => onChange(1)} className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#D1D5DB] bg-white text-sm text-[#374151] hover:bg-[#F3F4F6] transition-colors">1</button>
-          {start > 2 && <span className="text-[#9CA3AF] px-1">…</span>}
+          <button onClick={() => onChange(1)} className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#CBD5E1] bg-white text-sm text-[#334155] hover:bg-[#F1F5F9] transition-colors">1</button>
+          {start > 2 && <span className="text-[#94A3B8] px-1">…</span>}
         </>
       )}
 
@@ -122,8 +122,8 @@ function Pagination({
           className={[
             'flex items-center justify-center w-9 h-9 rounded-lg border text-sm font-medium transition-colors',
             p === page
-              ? 'border-[#C41E3A] bg-[#C41E3A] text-white'
-              : 'border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F3F4F6]',
+              ? 'border-[#E41513] bg-[#E41513] text-white'
+              : 'border-[#CBD5E1] bg-white text-[#334155] hover:bg-[#F1F5F9]',
           ].join(' ')}
         >
           {p}
@@ -132,8 +132,8 @@ function Pagination({
 
       {end < totalPages && (
         <>
-          {end < totalPages - 1 && <span className="text-[#9CA3AF] px-1">…</span>}
-          <button onClick={() => onChange(totalPages)} className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#D1D5DB] bg-white text-sm text-[#374151] hover:bg-[#F3F4F6] transition-colors">{totalPages}</button>
+          {end < totalPages - 1 && <span className="text-[#94A3B8] px-1">…</span>}
+          <button onClick={() => onChange(totalPages)} className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#CBD5E1] bg-white text-sm text-[#334155] hover:bg-[#F1F5F9] transition-colors">{totalPages}</button>
         </>
       )}
 
@@ -141,7 +141,7 @@ function Pagination({
         onClick={() => onChange(page + 1)}
         disabled={page >= totalPages}
         aria-label="Próxima página"
-        className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F3F4F6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+        className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#CBD5E1] bg-white text-[#334155] hover:bg-[#F1F5F9] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
       >
         <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -230,15 +230,15 @@ export default function HistoryPage() {
   if (!authorized || !session) return null
 
   return (
-    <main className="min-h-screen bg-[#F9FAFB]">
+    <main className="min-h-screen bg-[#F8FAFC]">
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-[#111827] font-['Sora',sans-serif]">
+            <h1 className="text-2xl font-bold text-[#0F172A] font-['Sora',sans-serif]">
               Histórico de Pancartas
             </h1>
-            <p className="mt-1 text-sm text-[#6B7280]">
+            <p className="mt-1 text-sm text-[#64748B]">
               Pancartas disponíveis por 2 dias. Pancartas expiradas são removidas automaticamente.
             </p>
           </div>
@@ -246,8 +246,8 @@ export default function HistoryPage() {
             href="/posters/new"
             className={[
               'inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shrink-0',
-              'bg-[#C41E3A] text-white hover:bg-[#9B1830] shadow-sm',
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+              'bg-[#E41513] text-white hover:bg-[#C01211] shadow-sm',
+              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
             ].join(' ')}
           >
             <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -258,13 +258,13 @@ export default function HistoryPage() {
         </div>
 
         {/* Filter bar */}
-        <div className="bg-white rounded-xl border border-[#E5E7EB] shadow-sm p-4 mb-6">
+        <div className="bg-white rounded-xl border border-[#E2E8F0] shadow-sm p-4 mb-6">
           <div className="flex flex-col sm:flex-row gap-3">
             {/* Search */}
             <div className="flex-1 relative">
               <svg
                 aria-hidden="true"
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -279,9 +279,9 @@ export default function HistoryPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={[
-                  'w-full rounded-lg border border-[#D1D5DB] bg-white pl-9 pr-3.5 py-2 text-sm text-[#374151] placeholder:text-[#9CA3AF]',
-                  "font-['DM_Sans',sans-serif] min-h-[40px] transition-colors",
-                  'focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none',
+                  'w-full rounded-lg border border-[#CBD5E1] bg-white pl-9 pr-3.5 py-2 text-sm text-[#334155] placeholder:text-[#94A3B8]',
+                  "font-['Plus_Jakarta_Sans',sans-serif] min-h-[40px] transition-colors",
+                  'focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none',
                 ].join(' ')}
               />
             </div>
@@ -320,7 +320,7 @@ export default function HistoryPage() {
 
         {/* Results summary */}
         {!loading && !error && (
-          <p className="text-xs text-[#9CA3AF] mb-4">
+          <p className="text-xs text-[#94A3B8] mb-4">
             {total === 0
               ? 'Nenhuma pancarta encontrada'
               : `${total} pancarta${total !== 1 ? 's' : ''} encontrada${total !== 1 ? 's' : ''}`}
@@ -331,7 +331,7 @@ export default function HistoryPage() {
         {error && (
           <div
             role="alert"
-            className="flex items-start gap-3 p-4 rounded-xl bg-[#FDECEA] border border-[#FCA5A5] text-sm text-[#C41E3A] mb-6"
+            className="flex items-start gap-3 p-4 rounded-xl bg-[#FEE8E8] border border-[#FCA5A5] text-sm text-[#E41513] mb-6"
           >
             <svg aria-hidden="true" className="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -352,16 +352,16 @@ export default function HistoryPage() {
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="bg-white rounded-xl border border-[#E5E7EB] shadow-sm overflow-hidden">
-                <div className="h-1 w-full bg-[#F3F4F6] shimmer" />
+              <div key={i} className="bg-white rounded-xl border border-[#E2E8F0] shadow-sm overflow-hidden">
+                <div className="h-1 w-full bg-[#F1F5F9] shimmer" />
                 <div className="p-4 flex flex-col gap-3">
                   <div className="flex gap-2">
-                    <div className="h-5 w-12 rounded-md bg-[#F3F4F6] shimmer" />
-                    <div className="h-5 w-28 rounded-full bg-[#F3F4F6] shimmer" />
+                    <div className="h-5 w-12 rounded-md bg-[#F1F5F9] shimmer" />
+                    <div className="h-5 w-28 rounded-full bg-[#F1F5F9] shimmer" />
                   </div>
-                  <div className="h-4 w-3/4 rounded bg-[#F3F4F6] shimmer" />
-                  <div className="h-4 w-1/2 rounded bg-[#F3F4F6] shimmer" />
-                  <div className="h-8 w-32 rounded-lg bg-[#F3F4F6] shimmer mt-2" />
+                  <div className="h-4 w-3/4 rounded bg-[#F1F5F9] shimmer" />
+                  <div className="h-4 w-1/2 rounded bg-[#F1F5F9] shimmer" />
+                  <div className="h-8 w-32 rounded-lg bg-[#F1F5F9] shimmer mt-2" />
                 </div>
               </div>
             ))}
@@ -371,15 +371,15 @@ export default function HistoryPage() {
         {/* Empty state */}
         {!loading && !error && posters.length === 0 && (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-[#F3F4F6] flex items-center justify-center mb-4">
-              <svg aria-hidden="true" className="w-8 h-8 text-[#D1D5DB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <div className="w-16 h-16 rounded-2xl bg-[#F1F5F9] flex items-center justify-center mb-4">
+              <svg aria-hidden="true" className="w-8 h-8 text-[#CBD5E1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h2 className="text-lg font-semibold text-[#374151] font-['Sora',sans-serif] mb-2">
+            <h2 className="text-lg font-semibold text-[#334155] font-['Sora',sans-serif] mb-2">
               Nenhuma pancarta encontrada
             </h2>
-            <p className="text-sm text-[#9CA3AF] max-w-sm mb-6">
+            <p className="text-sm text-[#94A3B8] max-w-sm mb-6">
               {statusFilter || formatoFilter || searchQuery
                 ? 'Tente ajustar os filtros para encontrar pancartas.'
                 : 'Você ainda não criou nenhuma pancarta. Comece criando uma agora.'}
@@ -389,8 +389,8 @@ export default function HistoryPage() {
                 href="/posters/new"
                 className={[
                   'inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold',
-                  'bg-[#C41E3A] text-white hover:bg-[#9B1830] transition-colors shadow-sm',
-                  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                  'bg-[#E41513] text-white hover:bg-[#C01211] transition-colors shadow-sm',
+                  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
                 ].join(' ')}
               >
                 <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

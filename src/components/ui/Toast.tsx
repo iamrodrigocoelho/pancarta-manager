@@ -44,8 +44,8 @@ const toastConfig: Record<
 > = {
   success: {
     bg: 'bg-white',
-    border: 'border-l-4 border-l-emerald-500 border border-[#E5E7EB]',
-    textColor: 'text-[#111827]',
+    border: 'border-l-4 border-l-emerald-500 border border-[#E2E8F0]',
+    textColor: 'text-[#0F172A]',
     icon: (
       <svg
         aria-hidden="true"
@@ -63,8 +63,8 @@ const toastConfig: Record<
   },
   error: {
     bg: 'bg-white',
-    border: 'border-l-4 border-l-[#DC2626] border border-[#E5E7EB]',
-    textColor: 'text-[#111827]',
+    border: 'border-l-4 border-l-[#DC2626] border border-[#E2E8F0]',
+    textColor: 'text-[#0F172A]',
     icon: (
       <svg
         aria-hidden="true"
@@ -82,8 +82,8 @@ const toastConfig: Record<
   },
   warning: {
     bg: 'bg-white',
-    border: 'border-l-4 border-l-amber-500 border border-[#E5E7EB]',
-    textColor: 'text-[#111827]',
+    border: 'border-l-4 border-l-amber-500 border border-[#E2E8F0]',
+    textColor: 'text-[#0F172A]',
     icon: (
       <svg
         aria-hidden="true"
@@ -101,8 +101,8 @@ const toastConfig: Record<
   },
   info: {
     bg: 'bg-white',
-    border: 'border-l-4 border-l-blue-500 border border-[#E5E7EB]',
-    textColor: 'text-[#111827]',
+    border: 'border-l-4 border-l-blue-500 border border-[#E2E8F0]',
+    textColor: 'text-[#0F172A]',
     icon: (
       <svg
         aria-hidden="true"
@@ -154,7 +154,7 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: string)
       aria-atomic="true"
       className={[
         'flex items-start gap-3 px-4 py-3 rounded-lg shadow-lg',
-        'font-[\'DM_Sans\',sans-serif] min-w-[280px] max-w-[380px]',
+        'font-[\'Plus_Jakarta_Sans\',sans-serif] min-w-[280px] max-w-[380px]',
         cfg.bg,
         cfg.border,
         'transition-all duration-250 ease-in-out',
@@ -172,7 +172,7 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: string)
       <button
         onClick={dismiss}
         aria-label="Fechar notificação"
-        className="flex items-center justify-center w-5 h-5 shrink-0 rounded text-[#6B7280] hover:text-[#374151] transition-colors mt-0.5"
+        className="flex items-center justify-center w-5 h-5 shrink-0 rounded text-[#64748B] hover:text-[#334155] transition-colors mt-0.5"
       >
         <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

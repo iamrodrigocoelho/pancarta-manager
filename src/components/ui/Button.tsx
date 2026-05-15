@@ -15,11 +15,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#C41E3A] text-white hover:bg-[#9B1830] active:scale-[0.98] transition-all border border-transparent shadow-sm',
+    'bg-[#E41513] text-white hover:bg-[#C01211] active:scale-[0.98] transition-all border border-transparent shadow-sm',
   secondary:
-    'bg-white text-[#C41E3A] border border-[#C41E3A] hover:bg-[#FDECEA] active:scale-[0.98] transition-all shadow-sm',
+    'bg-white text-[#0F2240] border border-[#CBD5E1] hover:border-[#0F2240] hover:bg-[#EEF5FB] active:scale-[0.98] transition-all shadow-sm',
   ghost:
-    'bg-transparent text-[#6B7280] hover:bg-[#F3F4F6] hover:text-[#374151] active:scale-[0.98] transition-all border border-transparent',
+    'bg-transparent text-[#64748B] hover:bg-[#F1F5F9] hover:text-[#334155] active:scale-[0.98] transition-all border border-transparent',
   danger:
     'bg-[#7F1D1D] text-white hover:bg-[#991B1B] active:scale-[0.98] transition-all border border-transparent shadow-sm',
 }
@@ -52,8 +52,8 @@ export function Button({
       {...props}
       disabled={isDisabled}
       className={[
-        'inline-flex items-center justify-center font-medium font-[\'DM_Sans\',sans-serif]',
-        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+        "inline-flex items-center justify-center font-medium font-['Plus_Jakarta_Sans',sans-serif]",
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
         'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
         'select-none whitespace-nowrap',
         variantClasses[variant],

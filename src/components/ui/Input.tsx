@@ -27,11 +27,11 @@ export function Input({
       {label && (
         <label
           htmlFor={inputId}
-          className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+          className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
         >
           {label}
           {required && (
-            <span className="ml-1 text-[#C41E3A]" aria-hidden="true">
+            <span className="ml-1 text-[#E41513]" aria-hidden="true">
               *
             </span>
           )}
@@ -49,15 +49,15 @@ export function Input({
         }
         className={[
           'w-full rounded-lg border px-3.5 py-2.5',
-          'text-sm text-[#111827] placeholder:text-[#9CA3AF]',
-          'font-[\'DM_Sans\',sans-serif]',
+          'text-sm text-[#0F172A] placeholder:text-[#94A3B8]',
+          'font-[\'Plus_Jakarta_Sans\',sans-serif]',
           'md:min-h-[48px] min-h-[44px]',
           'transition-colors duration-150',
           'bg-white',
           error
             ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:outline-none'
-            : 'border-[#D1D5DB] focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF]',
-          disabled ? 'bg-[#F3F4F6] text-[#6B7280] cursor-not-allowed opacity-75' : '',
+            : 'border-[#CBD5E1] focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8]',
+          disabled ? 'bg-[#F1F5F9] text-[#64748B] cursor-not-allowed opacity-75' : '',
           className,
         ].join(' ')}
       />
@@ -85,7 +85,7 @@ export function Input({
       )}
 
       {helpText && !error && (
-        <p id={`${inputId}-help`} className="text-xs text-[#6B7280]">
+        <p id={`${inputId}-help`} className="text-xs text-[#64748B]">
           {helpText}
         </p>
       )}

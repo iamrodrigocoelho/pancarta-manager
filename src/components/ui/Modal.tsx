@@ -117,17 +117,17 @@ export function Modal({
       >
         {/* Header */}
         {(title != null) && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB] shrink-0">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-[#E2E8F0] shrink-0">
             <h2
               id="modal-title"
-              className="text-lg font-semibold text-[#111827] font-['Sora',sans-serif]"
+              className="text-lg font-semibold text-[#0F172A] font-['Sora',sans-serif]"
             >
               {title}
             </h2>
             <button
               onClick={onClose}
               aria-label="Fechar modal"
-              className="flex items-center justify-center w-8 h-8 rounded-lg text-[#6B7280] hover:text-[#374151] hover:bg-[#F3F4F6] transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-lg text-[#64748B] hover:text-[#334155] hover:bg-[#F1F5F9] transition-colors"
             >
               <svg
                 aria-hidden="true"
@@ -150,7 +150,7 @@ export function Modal({
 
         {/* Footer */}
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#E5E7EB] bg-[#F9FAFB] rounded-b-xl shrink-0">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#E2E8F0] bg-[#F8FAFC] rounded-b-xl shrink-0">
             {footer}
           </div>
         )}

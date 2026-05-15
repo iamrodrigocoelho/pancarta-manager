@@ -69,7 +69,7 @@ export function PosterPreview({ poster, className = '' }: PosterPreviewProps) {
     <div className={['flex flex-col items-center gap-3', className].join(' ')}>
       {/* Preview badge */}
       <div className="flex items-center gap-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F3F4F6] border border-[#E5E7EB] text-xs font-medium text-[#6B7280]">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9] border border-[#E2E8F0] text-xs font-medium text-[#64748B]">
           <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -85,14 +85,14 @@ export function PosterPreview({ poster, className = '' }: PosterPreviewProps) {
         style={{
           width: widthPx,
           height: heightPx,
-          fontFamily: "'DM Sans', Arial, sans-serif",
+          fontFamily: "'Plus Jakarta Sans', Arial, sans-serif",
         }}
-        className="relative overflow-hidden rounded-lg shadow-xl border border-[#E5E7EB] select-none"
+        className="relative overflow-hidden rounded-lg shadow-xl border border-[#E2E8F0] select-none"
       >
         {/* ── Header zone (red brand bar) ── */}
         <div
           style={{ height: headerH }}
-          className="w-full bg-[#C41E3A] flex items-center justify-between px-3"
+          className="w-full bg-[#E41513] flex items-center justify-between px-3"
         >
           {/* Logo placeholder */}
           <div className="flex items-center gap-1.5">
@@ -126,13 +126,13 @@ export function PosterPreview({ poster, className = '' }: PosterPreviewProps) {
         {/* ── Descrição zone (white) ── */}
         <div
           style={{ height: descricaoH, backgroundColor: '#FFFFFF' }}
-          className="w-full flex flex-col items-center justify-center px-3 border-b border-[#F3F4F6]"
+          className="w-full flex flex-col items-center justify-center px-3 border-b border-[#F1F5F9]"
         >
           <p
             style={{
               fontSize: descFontSize,
               lineHeight: 1.3,
-              color: '#111827',
+              color: '#0F172A',
               fontWeight: 700,
               textAlign: 'center',
               overflow: 'hidden',
@@ -142,20 +142,20 @@ export function PosterPreview({ poster, className = '' }: PosterPreviewProps) {
               maxWidth: '90%',
             }}
           >
-            {descricaoProduto || <span style={{ color: '#9CA3AF', fontWeight: 400, fontStyle: 'italic' }}>Descrição do produto</span>}
+            {descricaoProduto || <span style={{ color: '#94A3B8', fontWeight: 400, fontStyle: 'italic' }}>Descrição do produto</span>}
           </p>
         </div>
 
         {/* ── Preço Loja zone (white) ── */}
         <div
           style={{ height: precoH, backgroundColor: '#FFFFFF' }}
-          className="w-full flex flex-col items-start justify-center px-4 border-b border-[#F3F4F6]"
+          className="w-full flex flex-col items-start justify-center px-4 border-b border-[#F1F5F9]"
         >
-          <p style={{ fontSize: Math.round(8 * baseFontScale), color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 2 }}>
+          <p style={{ fontSize: Math.round(8 * baseFontScale), color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 2 }}>
             Preço Loja
           </p>
-          <p style={{ fontSize: precoLojaFontSize, color: '#374151', fontWeight: 600 }}>
-            R$ {precoLoja || <span style={{ color: '#D1D5DB' }}>0,00</span>}
+          <p style={{ fontSize: precoLojaFontSize, color: '#334155', fontWeight: 600 }}>
+            R$ {precoLoja || <span style={{ color: '#CBD5E1' }}>0,00</span>}
           </p>
         </div>
 
@@ -190,7 +190,7 @@ export function PosterPreview({ poster, className = '' }: PosterPreviewProps) {
           <p
             style={{
               fontSize: precoAppFontSize,
-              color: '#111827',
+              color: '#0F172A',
               fontWeight: 900,
               lineHeight: 1,
               zIndex: 1,
@@ -231,7 +231,7 @@ export function PosterPreview({ poster, className = '' }: PosterPreviewProps) {
       </div>
 
       {/* Disclaimer */}
-      <p className="text-center text-xs text-[#9CA3AF] max-w-xs leading-relaxed">
+      <p className="text-center text-xs text-[#94A3B8] max-w-xs leading-relaxed">
         A prévia é aproximada. O PDF final é gerado com posicionamento preciso.
       </p>
     </div>

@@ -70,9 +70,9 @@ function EditableCell({ value, fieldKey, rowIndex, onUpdate }: EditableCellProps
         onKeyDown={handleKeyDown}
         aria-label={`Editar campo ${fieldKey} da linha ${rowIndex + 1}`}
         className={[
-          'w-full min-w-[80px] px-2 py-1 rounded border text-xs text-[#111827]',
-          "font-['DM_Sans',sans-serif] bg-white",
-          'border-[#C41E3A] ring-2 ring-[#C41E3A]/20 outline-none',
+          'w-full min-w-[80px] px-2 py-1 rounded border text-xs text-[#0F172A]',
+          "font-['Plus_Jakarta_Sans',sans-serif] bg-white",
+          'border-[#E41513] ring-2 ring-[#E41513]/20 outline-none',
         ].join(' ')}
       />
     )
@@ -90,9 +90,9 @@ function EditableCell({ value, fieldKey, rowIndex, onUpdate }: EditableCellProps
       className={[
         'w-full text-left px-2 py-1 rounded text-xs transition-colors group',
         value
-          ? 'text-[#111827] hover:bg-[#F3F4F6]'
-          : 'text-[#9CA3AF] italic hover:bg-[#F3F4F6]',
-        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A]',
+          ? 'text-[#0F172A] hover:bg-[#F1F5F9]'
+          : 'text-[#94A3B8] italic hover:bg-[#F1F5F9]',
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513]',
       ].join(' ')}
     >
       <span className="flex items-center gap-1">
@@ -146,10 +146,10 @@ export function CsvValidationTable({
   if (rows.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center gap-3">
-        <svg aria-hidden="true" className="w-10 h-10 text-[#D1D5DB]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <svg aria-hidden="true" className="w-10 h-10 text-[#CBD5E1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
-        <p className="text-sm text-[#6B7280]">Nenhuma linha para exibir.</p>
+        <p className="text-sm text-[#64748B]">Nenhuma linha para exibir.</p>
       </div>
     )
   }
@@ -160,7 +160,7 @@ export function CsvValidationTable({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2">
           {/* Total */}
-          <span className="text-sm font-medium text-[#374151]">
+          <span className="text-sm font-medium text-[#334155]">
             {rows.length} linha{rows.length !== 1 ? 's' : ''}
           </span>
 
@@ -189,7 +189,7 @@ export function CsvValidationTable({
                 'px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors',
                 showOnlyInvalid
                   ? 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100'
-                  : 'bg-white border-[#D1D5DB] text-[#6B7280] hover:border-[#C41E3A] hover:text-[#C41E3A]',
+                  : 'bg-white border-[#CBD5E1] text-[#64748B] hover:border-[#E41513] hover:text-[#E41513]',
               ].join(' ')}
             >
               {showOnlyInvalid ? 'Mostrar todas' : 'Ver somente inválidas'}
@@ -213,25 +213,25 @@ export function CsvValidationTable({
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto rounded-xl border border-[#E5E7EB] shadow-sm">
-        <table className="min-w-full text-sm font-['DM_Sans',sans-serif]">
-          <thead className="bg-[#F9FAFB] border-b border-[#E5E7EB]">
+      <div className="w-full overflow-x-auto rounded-xl border border-[#E2E8F0] shadow-sm">
+        <table className="min-w-full text-sm font-['Plus_Jakarta_Sans',sans-serif]">
+          <thead className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
             <tr>
-              <th scope="col" className="sticky left-0 z-10 bg-[#F9FAFB] px-3 py-2.5 text-left text-xs font-semibold text-[#6B7280] uppercase tracking-wider whitespace-nowrap w-12">
+              <th scope="col" className="sticky left-0 z-10 bg-[#F8FAFC] px-3 py-2.5 text-left text-xs font-semibold text-[#64748B] uppercase tracking-wider whitespace-nowrap w-12">
                 Linha
               </th>
               {FIELDS.map((f) => (
-                <th key={f.key} scope="col" className={`px-3 py-2.5 text-left text-xs font-semibold text-[#6B7280] uppercase tracking-wider whitespace-nowrap ${f.width}`}>
+                <th key={f.key} scope="col" className={`px-3 py-2.5 text-left text-xs font-semibold text-[#64748B] uppercase tracking-wider whitespace-nowrap ${f.width}`}>
                   {f.label}
                 </th>
               ))}
-              <th scope="col" className="px-3 py-2.5 text-right text-xs font-semibold text-[#6B7280] uppercase tracking-wider whitespace-nowrap w-16">
+              <th scope="col" className="px-3 py-2.5 text-right text-xs font-semibold text-[#64748B] uppercase tracking-wider whitespace-nowrap w-16">
                 Ações
               </th>
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-[#F3F4F6]">
+          <tbody className="divide-y divide-[#F1F5F9]">
             {pageRows.map((row) => {
               const origIdx = getOriginalIndex(row)
               const isValid = row._valida
@@ -242,7 +242,7 @@ export function CsvValidationTable({
                     className={[
                       'transition-colors',
                       isValid
-                        ? 'border-l-4 border-l-emerald-400 hover:bg-[#F9FAFB]'
+                        ? 'border-l-4 border-l-emerald-400 hover:bg-[#F8FAFC]'
                         : 'border-l-4 border-l-red-400 bg-red-50/30 hover:bg-red-50/50',
                     ].join(' ')}
                   >
@@ -269,7 +269,7 @@ export function CsvValidationTable({
                             onUpdate={onRowUpdate}
                           />
                         ) : (
-                          <span className="text-xs text-[#374151] px-2">{row[f.key] as string ?? '—'}</span>
+                          <span className="text-xs text-[#334155] px-2">{row[f.key] as string ?? '—'}</span>
                         )}
                       </td>
                     ))}
@@ -283,7 +283,7 @@ export function CsvValidationTable({
                           if (pageRows.length === 1 && page > 1) setPage(page - 1)
                         }}
                         aria-label={`Remover linha ${row._linha}`}
-                        className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-[#9CA3AF] hover:text-[#DC2626] hover:bg-red-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#DC2626]"
+                        className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-[#94A3B8] hover:text-[#DC2626] hover:bg-red-50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#DC2626]"
                       >
                         <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -322,7 +322,7 @@ export function CsvValidationTable({
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-between gap-2 text-sm">
-          <span className="text-xs text-[#9CA3AF]">
+          <span className="text-xs text-[#94A3B8]">
             Mostrando {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, displayedRows.length)} de {displayedRows.length}
           </span>
           <div className="flex items-center gap-1">
@@ -330,7 +330,7 @@ export function CsvValidationTable({
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1}
               aria-label="Página anterior"
-              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F3F4F6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#CBD5E1] bg-white text-[#334155] hover:bg-[#F1F5F9] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -346,8 +346,8 @@ export function CsvValidationTable({
                   className={[
                     'flex items-center justify-center w-8 h-8 rounded-lg border text-xs font-medium transition-colors',
                     p === page
-                      ? 'border-[#C41E3A] bg-[#C41E3A] text-white'
-                      : 'border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F3F4F6]',
+                      ? 'border-[#E41513] bg-[#E41513] text-white'
+                      : 'border-[#CBD5E1] bg-white text-[#334155] hover:bg-[#F1F5F9]',
                   ].join(' ')}
                 >
                   {p}
@@ -357,7 +357,7 @@ export function CsvValidationTable({
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page >= totalPages}
               aria-label="Próxima página"
-              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F3F4F6] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#CBD5E1] bg-white text-[#334155] hover:bg-[#F1F5F9] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -369,7 +369,7 @@ export function CsvValidationTable({
 
       {/* Bottom confirm */}
       {rows.length > PAGE_SIZE && (
-        <div className="flex justify-end pt-2 border-t border-[#E5E7EB]">
+        <div className="flex justify-end pt-2 border-t border-[#E2E8F0]">
           <Button
             type="button"
             variant="primary"

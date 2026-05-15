@@ -29,7 +29,7 @@ export async function sendPasswordResetEmail(
       <p>Olá, ${nome}!</p>
       <p>Você solicitou a redefinição da sua senha no Pancarta Manager.</p>
       <p>Clique no link abaixo para cadastrar uma nova senha. O link expira em 30 minutos.</p>
-      <p><a href="${link}" style="color:#C41E3A;font-weight:bold;">Redefinir minha senha</a></p>
+      <p><a href="${link}" style="color:#E41513;font-weight:bold;">Redefinir minha senha</a></p>
       <p>Se você não solicitou a redefinição, ignore este e-mail.</p>
       <br/>
       <p>Equipe Pancarta Manager</p>

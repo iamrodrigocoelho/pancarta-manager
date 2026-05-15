@@ -132,17 +132,17 @@ function ConfigCard({ config, onSaved }: ConfigCardProps) {
   }
 
   return (
-    <div className="rounded-xl border border-[#E5E7EB] bg-white p-5 flex flex-col gap-4 shadow-sm">
+    <div className="rounded-xl border border-[#E2E8F0] bg-white p-5 flex flex-col gap-4 shadow-sm">
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-[#111827] text-sm font-['DM_Sans',sans-serif]">
+          <h3 className="font-semibold text-[#0F172A] text-sm font-['Plus_Jakarta_Sans',sans-serif]">
             {meta?.label ?? config.chave}
           </h3>
-          <p className="text-xs text-[#6B7280] mt-0.5 leading-relaxed">
+          <p className="text-xs text-[#64748B] mt-0.5 leading-relaxed">
             {meta?.description ?? config.descricao ?? ''}
           </p>
-          <p className="text-[10px] text-[#9CA3AF] mt-1 font-mono">{config.chave}</p>
+          <p className="text-[10px] text-[#94A3B8] mt-1 font-mono">{config.chave}</p>
         </div>
 
         {!editing && (
@@ -159,7 +159,7 @@ function ConfigCard({ config, onSaved }: ConfigCardProps) {
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor={`config-${config.chave}`}
-                className="text-sm font-medium text-[#374151] font-['DM_Sans',sans-serif]"
+                className="text-sm font-medium text-[#334155] font-['Plus_Jakarta_Sans',sans-serif]"
               >
                 Valor
               </label>
@@ -167,7 +167,7 @@ function ConfigCard({ config, onSaved }: ConfigCardProps) {
                 id={`config-${config.chave}`}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                className="w-full rounded-lg border border-[#D1D5DB] px-3.5 py-2.5 text-sm text-[#111827] bg-white focus:border-[#C41E3A] focus:ring-2 focus:ring-[#C41E3A]/20 focus:outline-none hover:border-[#9CA3AF] md:min-h-[48px] min-h-[44px]"
+                className="w-full rounded-lg border border-[#CBD5E1] px-3.5 py-2.5 text-sm text-[#0F172A] bg-white focus:border-[#E41513] focus:ring-2 focus:ring-[#E41513]/20 focus:outline-none hover:border-[#94A3B8] md:min-h-[48px] min-h-[44px]"
               >
                 {meta.options?.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -200,10 +200,10 @@ function ConfigCard({ config, onSaved }: ConfigCardProps) {
         </div>
       ) : (
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-[#C41E3A] font-['DM_Sans',sans-serif]">
+          <span className="text-sm font-medium text-[#E41513] font-['Plus_Jakarta_Sans',sans-serif]">
             {displayValue()}
           </span>
-          <span className="text-xs text-[#9CA3AF]">
+          <span className="text-xs text-[#94A3B8]">
             · atualizado em{' '}
             {new Date(config.atualizado_em).toLocaleString('pt-BR', {
               day: '2-digit',
@@ -264,7 +264,7 @@ export default function AdminConfigPage() {
   return (
     <div className="flex flex-col gap-6 max-w-2xl">
       {/* Intro */}
-      <p className="text-sm text-[#6B7280] leading-relaxed">
+      <p className="text-sm text-[#64748B] leading-relaxed">
         Parâmetros globais do sistema. Alterações entram em vigor imediatamente para todos os
         usuários.
       </p>
@@ -274,7 +274,7 @@ export default function AdminConfigPage() {
           <Spinner size="lg" />
         </div>
       ) : configs.length === 0 ? (
-        <div className="rounded-xl border border-[#E5E7EB] bg-white p-8 text-center text-sm text-[#6B7280]">
+        <div className="rounded-xl border border-[#E2E8F0] bg-white p-8 text-center text-sm text-[#64748B]">
           Nenhuma configuração encontrada. Execute o seed do banco de dados para criá-las.
         </div>
       ) : (

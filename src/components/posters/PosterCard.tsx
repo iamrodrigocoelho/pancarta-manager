@@ -64,7 +64,7 @@ function formatExpirationCountdown(expiresAt: string): { label: string; urgent: 
 function formatoBadgeClass(formato: PosterFormat | undefined): string {
   if (formato === 'A4') return 'bg-blue-50 text-blue-700 ring-1 ring-blue-200'
   if (formato === 'A6') return 'bg-purple-50 text-purple-700 ring-1 ring-purple-200'
-  return 'bg-[#F3F4F6] text-[#6B7280] ring-1 ring-[#E5E7EB]'
+  return 'bg-[#F1F5F9] text-[#64748B] ring-1 ring-[#E2E8F0]'
 }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
@@ -147,8 +147,8 @@ export function PosterCard({ poster, session, onStatusChange }: PosterCardProps)
       className={[
         'relative bg-white rounded-xl border shadow-sm overflow-hidden transition-shadow hover:shadow-md',
         localStatus === 'EXPIRADA' || localStatus === 'CANCELADA'
-          ? 'border-[#E5E7EB] opacity-60'
-          : 'border-[#E5E7EB]',
+          ? 'border-[#E2E8F0] opacity-60'
+          : 'border-[#E2E8F0]',
       ].join(' ')}
     >
       {/* Top accent bar by status */}
@@ -159,9 +159,9 @@ export function PosterCard({ poster, session, onStatusChange }: PosterCardProps)
           localStatus === 'APROVADA_PELA_LOJA' ? 'bg-emerald-500' :
           localStatus === 'PDF_GERADO' ? 'bg-blue-500' :
           localStatus === 'DOWNLOAD_REALIZADO' ? 'bg-indigo-500' :
-          localStatus === 'EXPIRADA' ? 'bg-[#D1D5DB]' :
+          localStatus === 'EXPIRADA' ? 'bg-[#CBD5E1]' :
           localStatus === 'CANCELADA' ? 'bg-red-400' :
-          'bg-[#C41E3A]',
+          'bg-[#E41513]',
         ].join(' ')}
         aria-hidden="true"
       />
@@ -192,7 +192,7 @@ export function PosterCard({ poster, session, onStatusChange }: PosterCardProps)
                 'shrink-0 text-xs font-medium px-2 py-0.5 rounded-full',
                 expirationInfo.urgent
                   ? 'bg-red-50 text-red-600 ring-1 ring-red-200'
-                  : 'bg-[#F3F4F6] text-[#6B7280]',
+                  : 'bg-[#F1F5F9] text-[#64748B]',
               ].join(' ')}
             >
               {expirationInfo.label}
@@ -201,25 +201,25 @@ export function PosterCard({ poster, session, onStatusChange }: PosterCardProps)
         </div>
 
         {/* Product description */}
-        <h3 className="text-sm font-semibold text-[#111827] leading-snug mb-2 line-clamp-2 font-['Sora',sans-serif]">
+        <h3 className="text-sm font-semibold text-[#0F172A] leading-snug mb-2 line-clamp-2 font-['Sora',sans-serif]">
           {poster.descricao_produto}
         </h3>
 
         {/* Prices */}
         <div className="flex items-center gap-3 mb-3">
           <div className="flex flex-col">
-            <span className="text-[10px] text-[#9CA3AF] uppercase tracking-wider">Preço Loja</span>
-            <span className="text-sm font-medium text-[#374151]">R$ {poster.preco_loja}</span>
+            <span className="text-[10px] text-[#94A3B8] uppercase tracking-wider">Preço Loja</span>
+            <span className="text-sm font-medium text-[#334155]">R$ {poster.preco_loja}</span>
           </div>
-          <div className="w-px h-8 bg-[#E5E7EB]" aria-hidden="true" />
+          <div className="w-px h-8 bg-[#E2E8F0]" aria-hidden="true" />
           <div className="flex flex-col">
-            <span className="text-[10px] text-[#9CA3AF] uppercase tracking-wider">APP/SITE</span>
+            <span className="text-[10px] text-[#94A3B8] uppercase tracking-wider">APP/SITE</span>
             <span className="text-sm font-bold text-[#B8860B]">R$ {poster.preco_app_site}</span>
           </div>
         </div>
 
         {/* Meta row */}
-        <div className="flex flex-wrap gap-x-3 gap-y-1 mb-4 text-xs text-[#6B7280]">
+        <div className="flex flex-wrap gap-x-3 gap-y-1 mb-4 text-xs text-[#64748B]">
           {/* Loja (for non-LOJA users) */}
           {poster.store && session.perfil !== 'LOJA' && (
             <span className="flex items-center gap-1">
@@ -286,8 +286,8 @@ export function PosterCard({ poster, session, onStatusChange }: PosterCardProps)
               rel="noopener noreferrer"
               className={[
                 'inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-md font-medium transition-all',
-                'bg-white text-[#374151] border border-[#D1D5DB] hover:bg-[#F3F4F6] hover:border-[#9CA3AF]',
-                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C41E3A] focus-visible:outline-offset-2',
+                'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#F1F5F9] hover:border-[#94A3B8]',
+                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#E41513] focus-visible:outline-offset-2',
               ].join(' ')}
             >
               <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -298,7 +298,7 @@ export function PosterCard({ poster, session, onStatusChange }: PosterCardProps)
           )}
 
           {localStatus === 'EXPIRADA' && (
-            <span className="text-xs text-[#9CA3AF] italic py-1">Pancarta expirada</span>
+            <span className="text-xs text-[#94A3B8] italic py-1">Pancarta expirada</span>
           )}
         </div>
       </div>

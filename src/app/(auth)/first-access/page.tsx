@@ -44,7 +44,7 @@ function Requirement({ met, label }: RequirementProps) {
           'flex items-center justify-center w-4.5 h-4.5 rounded-full shrink-0 transition-all duration-300',
           met
             ? 'bg-[#059669] text-white scale-110'
-            : 'bg-[#E5E7EB] text-[#9CA3AF]',
+            : 'bg-[#E2E8F0] text-[#94A3B8]',
         ].join(' ')}
         aria-hidden="true"
       >
@@ -58,7 +58,7 @@ function Requirement({ met, label }: RequirementProps) {
           </svg>
         )}
       </span>
-      <span className={met ? 'text-[#059669] font-medium' : 'text-[#6B7280]'}>{label}</span>
+      <span className={met ? 'text-[#059669] font-medium' : 'text-[#64748B]'}>{label}</span>
     </li>
   )
 }
@@ -77,7 +77,7 @@ function StrengthBar({ password }: { password: string }) {
   const score = checks.filter(Boolean).length
 
   const levels: { label: string; color: string; width: string }[] = [
-    { label: '', color: 'bg-[#E5E7EB]', width: 'w-0' },
+    { label: '', color: 'bg-[#E2E8F0]', width: 'w-0' },
     { label: 'Muito fraca', color: 'bg-[#DC2626]', width: 'w-1/5' },
     { label: 'Fraca', color: 'bg-[#F97316]', width: 'w-2/5' },
     { label: 'Média', color: 'bg-[#D97706]', width: 'w-3/5' },
@@ -91,7 +91,7 @@ function StrengthBar({ password }: { password: string }) {
 
   return (
     <div className="flex flex-col gap-1.5">
-      <div className="h-1.5 w-full bg-[#E5E7EB] rounded-full overflow-hidden">
+      <div className="h-1.5 w-full bg-[#E2E8F0] rounded-full overflow-hidden">
         <div
           className={['h-full rounded-full transition-all duration-500', current.color, current.width].join(' ')}
         />
@@ -165,7 +165,7 @@ export default function FirstAccessPage() {
 
   if (success) {
     return (
-      <div className="min-h-dvh flex items-center justify-center bg-[#F9FAFB] px-4">
+      <div className="min-h-dvh flex items-center justify-center bg-[#F8FAFC] px-4">
         <div className="text-center animate-fade-in-up flex flex-col items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-[#D1FAE5] flex items-center justify-center">
             <svg className="w-8 h-8 text-[#059669]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -173,10 +173,10 @@ export default function FirstAccessPage() {
             </svg>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-[#111827]" style={{ fontFamily: "'Sora', sans-serif" }}>
+            <h2 className="text-xl font-bold text-[#0F172A]" style={{ fontFamily: "'Sora', sans-serif" }}>
               Senha definida com sucesso!
             </h2>
-            <p className="mt-1 text-sm text-[#6B7280]">Redirecionando para o dashboard…</p>
+            <p className="mt-1 text-sm text-[#64748B]">Redirecionando para o dashboard…</p>
           </div>
         </div>
       </div>
@@ -184,23 +184,23 @@ export default function FirstAccessPage() {
   }
 
   return (
-    <div className="min-h-dvh flex items-center justify-center bg-[#F9FAFB] px-4 py-12">
+    <div className="min-h-dvh flex items-center justify-center bg-[#F8FAFC] px-4 py-12">
       <div className="w-full max-w-md animate-fade-in-up">
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-[#C41E3A] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#E41513] flex items-center justify-center shrink-0">
             <svg aria-hidden="true" className="w-5.5 h-5.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
             </svg>
           </div>
           <div>
             <h1
-              className="text-xl font-bold text-[#111827]"
+              className="text-xl font-bold text-[#0F172A]"
               style={{ fontFamily: "'Sora', sans-serif" }}
             >
               Primeiro acesso
             </h1>
-            <p className="text-sm text-[#6B7280]">Defina sua senha para continuar</p>
+            <p className="text-sm text-[#64748B]">Defina sua senha para continuar</p>
           </div>
         </div>
 
@@ -214,12 +214,12 @@ export default function FirstAccessPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6 flex flex-col gap-6">
+        <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6 flex flex-col gap-6">
           {/* Server error */}
           {serverError && (
             <div
               role="alert"
-              className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-[#FDECEA] border border-[#FCA5A5] text-sm text-[#C41E3A]"
+              className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-[#FEE8E8] border border-[#FCA5A5] text-sm text-[#E41513]"
             >
               <svg aria-hidden="true" className="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -266,8 +266,8 @@ export default function FirstAccessPage() {
             />
 
             {/* Requirements checklist */}
-            <div className="rounded-xl bg-[#F9FAFB] border border-[#E5E7EB] p-4">
-              <p className="text-xs font-semibold text-[#374151] uppercase tracking-wider mb-3">
+            <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-4">
+              <p className="text-xs font-semibold text-[#334155] uppercase tracking-wider mb-3">
                 Requisitos da senha
               </p>
               <ul className="flex flex-col gap-2" aria-label="Requisitos de senha">

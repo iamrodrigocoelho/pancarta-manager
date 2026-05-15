@@ -38,7 +38,7 @@ function Requirement({ met, label }: { met: boolean; label: string }) {
       <span
         className={[
           'w-4 h-4 rounded-full flex items-center justify-center shrink-0 transition-all duration-300',
-          met ? 'bg-[#059669] text-white' : 'bg-[#E5E7EB] text-[#9CA3AF]',
+          met ? 'bg-[#059669] text-white' : 'bg-[#E2E8F0] text-[#94A3B8]',
         ].join(' ')}
         aria-hidden="true"
       >
@@ -52,7 +52,7 @@ function Requirement({ met, label }: { met: boolean; label: string }) {
           </svg>
         )}
       </span>
-      <span className={met ? 'text-[#059669] font-medium' : 'text-[#6B7280]'}>{label}</span>
+      <span className={met ? 'text-[#059669] font-medium' : 'text-[#64748B]'}>{label}</span>
     </li>
   )
 }
@@ -127,27 +127,27 @@ function ResetPasswordForm() {
 
   if (tokenMissing) {
     return (
-      <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-8 flex flex-col items-center text-center gap-4 animate-fade-in">
-        <div className="w-14 h-14 rounded-full bg-[#FDECEA] flex items-center justify-center">
-          <svg className="w-7 h-7 text-[#C41E3A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-8 flex flex-col items-center text-center gap-4 animate-fade-in">
+        <div className="w-14 h-14 rounded-full bg-[#FEE8E8] flex items-center justify-center">
+          <svg className="w-7 h-7 text-[#E41513]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
           </svg>
         </div>
         <div>
           <h1
-            className="text-lg font-bold text-[#111827]"
+            className="text-lg font-bold text-[#0F172A]"
             style={{ fontFamily: "'Sora', sans-serif" }}
           >
             Link inválido
           </h1>
-          <p className="mt-2 text-sm text-[#6B7280] leading-relaxed">
+          <p className="mt-2 text-sm text-[#64748B] leading-relaxed">
             O link de redefinição de senha está incompleto ou expirou.
             Solicite um novo link de recuperação.
           </p>
         </div>
         <Link
           href="/forgot-password"
-          className="w-full flex items-center justify-center h-11 rounded-lg bg-[#C41E3A] text-white text-sm font-semibold hover:bg-[#9B1830] transition-colors"
+          className="w-full flex items-center justify-center h-11 rounded-lg bg-[#E41513] text-white text-sm font-semibold hover:bg-[#C01211] transition-colors"
         >
           Solicitar novo link
         </Link>
@@ -159,7 +159,7 @@ function ResetPasswordForm() {
 
   if (success) {
     return (
-      <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-8 flex flex-col items-center text-center gap-4 animate-fade-in">
+      <div className="w-full max-w-sm bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-8 flex flex-col items-center text-center gap-4 animate-fade-in">
         <div className="w-14 h-14 rounded-full bg-[#D1FAE5] flex items-center justify-center">
           <svg className="w-7 h-7 text-[#059669]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -167,12 +167,12 @@ function ResetPasswordForm() {
         </div>
         <div>
           <h2
-            className="text-lg font-bold text-[#111827]"
+            className="text-lg font-bold text-[#0F172A]"
             style={{ fontFamily: "'Sora', sans-serif" }}
           >
             Senha redefinida!
           </h2>
-          <p className="mt-2 text-sm text-[#6B7280]">Redirecionando para o login…</p>
+          <p className="mt-2 text-sm text-[#64748B]">Redirecionando para o login…</p>
         </div>
       </div>
     )
@@ -185,7 +185,7 @@ function ResetPasswordForm() {
       {/* Back link */}
       <Link
         href="/login"
-        className="inline-flex items-center gap-1.5 text-sm text-[#6B7280] hover:text-[#374151] transition-colors mb-8"
+        className="inline-flex items-center gap-1.5 text-sm text-[#64748B] hover:text-[#334155] transition-colors mb-8"
       >
         <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -195,28 +195,28 @@ function ResetPasswordForm() {
 
       {/* Heading */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-xl bg-[#C41E3A] flex items-center justify-center shrink-0">
+        <div className="w-10 h-10 rounded-xl bg-[#E41513] flex items-center justify-center shrink-0">
           <svg aria-hidden="true" className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
           </svg>
         </div>
         <div>
           <h1
-            className="text-xl font-bold text-[#111827]"
+            className="text-xl font-bold text-[#0F172A]"
             style={{ fontFamily: "'Sora', sans-serif" }}
           >
             Nova senha
           </h1>
-          <p className="text-sm text-[#6B7280]">Escolha uma senha segura para sua conta</p>
+          <p className="text-sm text-[#64748B]">Escolha uma senha segura para sua conta</p>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-sm p-6 flex flex-col gap-5">
+      <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-sm p-6 flex flex-col gap-5">
         {/* Server error */}
         {serverError && (
           <div
             role="alert"
-            className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-[#FDECEA] border border-[#FCA5A5] text-sm text-[#C41E3A]"
+            className="flex items-start gap-2.5 px-4 py-3 rounded-lg bg-[#FEE8E8] border border-[#FCA5A5] text-sm text-[#E41513]"
           >
             <svg aria-hidden="true" className="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -251,7 +251,7 @@ function ResetPasswordForm() {
 
           {/* Requirements */}
           {newPasswordValue.length > 0 && (
-            <div className="rounded-xl bg-[#F9FAFB] border border-[#E5E7EB] px-4 py-3">
+            <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] px-4 py-3">
               <ul className="flex flex-col gap-1.5" aria-label="Requisitos de senha">
                 {requirements.map((req) => (
                   <Requirement key={req.label} met={req.met} label={req.label} />
@@ -279,7 +279,7 @@ function ResetPasswordForm() {
 
 export default function ResetPasswordPage() {
   return (
-    <div className="min-h-dvh flex items-center justify-center bg-[#F9FAFB] px-4 py-12">
+    <div className="min-h-dvh flex items-center justify-center bg-[#F8FAFC] px-4 py-12">
       <Suspense
         fallback={
           <div className="flex items-center justify-center">
