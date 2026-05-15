@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pancarta Manager
 
-## Getting Started
+Aplicação web para criação, conferência, aprovação, geração e download de pancartas promocionais em formatos A4 e A6.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 20+
+- PostgreSQL 15+
+
+## Instalação
+
+```bash
+# Instalar dependências
+npm install
+
+# Configurar variáveis de ambiente
+cp .env.example .env
+# Edite .env com suas credenciais
+
+# Gerar cliente Prisma
+npm run db:generate
+
+# Criar e migrar o banco
+npm run db:migrate
+
+# Popular com dados iniciais
+npm run db:seed
+```
+
+## Iniciar em desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usuários iniciais (seed)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Matrícula | Senha | Perfil |
+|---|---|---|
+| admin | Admin@123 | ADMIN |
+| central01 | Central@123 | AREA_CENTRAL |
+| loja001 | Loja@123! | LOJA (Loja Centro) |
 
-## Learn More
+## Testes
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Testes unitários
+npm test
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Testes em modo watch
+npm run test:watch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Testes E2E (requer app rodando)
+npm run test:e2e
+```
 
-## Deploy on Vercel
+## Limpeza automática
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+PDFs e histórico expiram após 2 dias. A limpeza roda automaticamente a cada hora via `node-cron`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para rodar manualmente via API:
+
+```bash
+curl -X POST http://localhost:3000/api/cron/cleanup \
+  -H "x-cron-secret: seu_cron_secret"
+```
+
+## Geração de PDF
+
+PDFs gerados com `pdf-lib` usando templates PNG em `public/templates/` como fundo.
+Posições de texto salvas em `Template.configuracao_posicoes` (JSON no banco).
+
+> **Nota sobre fonte:** O sistema usa `Helvetica` como fallback para `Aptos`. Para usar Aptos, adicione o arquivo `.ttf` em `public/fonts/` e atualize `src/lib/pdf.ts`.
+
+## Stack
+
+- **Next.js 14** (App Router) · **TypeScript** · **Tailwind CSS v4**
+- **Prisma** + **PostgreSQL** · **pdf-lib** · **PapaParse**
+- **Argon2** · **jose** (JWT) · **Vitest** · **Playwright**

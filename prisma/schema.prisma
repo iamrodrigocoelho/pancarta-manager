@@ -1,0 +1,291 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserProfile {
+  ADMIN
+  AREA_CENTRAL
+  LOJA
+}
+
+enum UserStatus {
+  ATIVO
+  INATIVO
+}
+
+enum PosterStatus {
+  RASCUNHO
+  AGUARDANDO_CONFERENCIA
+  APROVADA_PELA_LOJA
+  PDF_GERADO
+  DOWNLOAD_REALIZADO
+  EXPIRADA
+  CANCELADA
+  ERRO_VALIDACAO
+}
+
+enum PosterOrigin {
+  MANUAL
+  CSV
+}
+
+enum PosterFormat {
+  A4
+  A6
+}
+
+enum TemplateStatus {
+  ATIVO
+  INATIVO
+}
+
+enum PdfStatus {
+  DISPONIVEL
+  EXPIRADO
+  ERRO
+}
+
+enum CsvImportType {
+  PANCARTAS
+  USUARIOS
+}
+
+enum CsvImportStatus {
+  PROCESSANDO
+  CONCLUIDO
+  ERRO
+  PARCIAL
+}
+
+enum PdfGenerationMode {
+  SINGLE_MULTIPAGE
+  INDIVIDUAL_FILES
+  ZIP_INDIVIDUAL_FILES
+}
+
+model Regional {
+  id          String   @id @default(cuid())
+  nome        String
+  status      UserStatus @default(ATIVO)
+  criado_em   DateTime @default(now())
+  atualizado_em DateTime @updatedAt
+
+  stores Store[]
+  users  User[]
+}
+
+model Store {
+  id          String     @id @default(cuid())
+  codigo      String     @unique
+  nome        String
+  regional_id String?
+  status      UserStatus @default(ATIVO)
+  criado_em   DateTime   @default(now())
+  atualizado_em DateTime @updatedAt
+
+  regional    Regional?  @relation(fields: [regional_id], references: [id])
+  users       User[]
+  posters     Poster[]
+  csv_imports CsvImport[]
+  audit_logs  AuditLog[]
+  download_logs DownloadLog[]
+
+  @@index([status])
+}
+
+model User {
+  id              String      @id @default(cuid())
+  matricula       String      @unique
+  nome            String
+  email           String?
+  senha_hash      String
+  perfil          UserProfile
+  loja_id         String?
+  regional_id     String?
+  status          UserStatus  @default(ATIVO)
+  primeiro_acesso Boolean     @default(true)
+  login_attempts  Int         @default(0)
+  locked_until    DateTime?
+  ultimo_login_em DateTime?
+  criado_em       DateTime    @default(now())
+  atualizado_em   DateTime    @updatedAt
+
+  store     Store?    @relation(fields: [loja_id], references: [id])
+  regional  Regional? @relation(fields: [regional_id], references: [id])
+
+  posters_criados   Poster[] @relation("PosterCreatedBy")
+  posters_aprovados Poster[] @relation("PosterApprovedBy")
+  pdf_files         PdfFile[]
+  csv_imports       CsvImport[]
+  download_logs     DownloadLog[]
+  audit_logs        AuditLog[]
+  password_tokens   PasswordResetToken[]
+  app_configs       AppConfig[]
+
+  @@index([matricula])
+  @@index([email])
+  @@index([loja_id])
+  @@index([status])
+}
+
+model PasswordResetToken {
+  id         String   @id @default(cuid())
+  user_id    String
+  token_hash String
+  expires_at DateTime
+  used       Boolean  @default(false)
+  criado_em  DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model Template {
+  id                    String         @id @default(cuid())
+  nome                  String
+  formato               PosterFormat
+  arquivo_base          String
+  versao                String         @default("1.0")
+  status                TemplateStatus @default(ATIVO)
+  configuracao_posicoes Json
+  criado_em             DateTime       @default(now())
+  atualizado_em         DateTime       @updatedAt
+
+  posters Poster[]
+
+  @@unique([formato, status])
+}
+
+model Poster {
+  id               String       @id @default(cuid())
+  template_id      String
+  loja_id          String?
+  campanha         String?
+  descricao_produto String
+  preco_loja       String
+  preco_app_site   String
+  ean              String
+  codigo_produto   String
+  data_validade    String
+  canal_oferta     String
+  texto_legal      String
+  observacoes      String?
+  origem           PosterOrigin
+  status           PosterStatus @default(RASCUNHO)
+  criado_por       String
+  aprovado_por     String?
+  aprovado_em      DateTime?
+  pdf_id           String?
+  expira_em        DateTime
+  criado_em        DateTime     @default(now())
+  atualizado_em    DateTime     @updatedAt
+
+  template Template  @relation(fields: [template_id], references: [id])
+  store    Store?    @relation(fields: [loja_id], references: [id])
+  criador  User      @relation("PosterCreatedBy", fields: [criado_por], references: [id])
+  aprovador User?   @relation("PosterApprovedBy", fields: [aprovado_por], references: [id])
+  pdf_file PdfFile?  @relation(fields: [pdf_id], references: [id])
+
+  @@index([loja_id])
+  @@index([status])
+  @@index([ean])
+  @@index([codigo_produto])
+  @@index([criado_em])
+  @@index([expira_em])
+}
+
+model CsvImport {
+  id              String          @id @default(cuid())
+  nome_arquivo    String
+  tipo            CsvImportType
+  usuario_id      String
+  loja_id         String?
+  total_linhas    Int             @default(0)
+  linhas_validas  Int             @default(0)
+  linhas_invalidas Int            @default(0)
+  status          CsvImportStatus @default(PROCESSANDO)
+  erros           Json?
+  criado_em       DateTime        @default(now())
+
+  user  User   @relation(fields: [usuario_id], references: [id])
+  store Store? @relation(fields: [loja_id], references: [id])
+
+  @@index([usuario_id])
+  @@index([loja_id])
+}
+
+model PdfFile {
+  id           String            @id @default(cuid())
+  nome_arquivo String
+  storage_path String
+  modo_geracao PdfGenerationMode @default(SINGLE_MULTIPAGE)
+  gerado_por   String
+  gerado_em    DateTime          @default(now())
+  expira_em    DateTime
+  status       PdfStatus         @default(DISPONIVEL)
+
+  gerador       User            @relation(fields: [gerado_por], references: [id])
+  posters       Poster[]
+  download_logs DownloadLog[]
+
+  @@index([expira_em])
+  @@index([status])
+}
+
+model DownloadLog {
+  id         String   @id @default(cuid())
+  pdf_id     String
+  usuario_id String
+  loja_id    String?
+  baixado_em DateTime @default(now())
+  ip         String?
+  user_agent String?
+
+  pdf   PdfFile @relation(fields: [pdf_id], references: [id])
+  user  User    @relation(fields: [usuario_id], references: [id])
+  store Store?  @relation(fields: [loja_id], references: [id])
+
+  @@index([pdf_id])
+  @@index([usuario_id])
+}
+
+model AuditLog {
+  id               String   @id @default(cuid())
+  usuario_id       String?
+  matricula        String?
+  perfil           String?
+  loja_id          String?
+  acao             String
+  entidade         String
+  entidade_id      String?
+  dados_anteriores Json?
+  dados_novos      Json?
+  ip               String?
+  user_agent       String?
+  criado_em        DateTime @default(now())
+
+  user  User?  @relation(fields: [usuario_id], references: [id])
+  store Store? @relation(fields: [loja_id], references: [id])
+
+  @@index([usuario_id])
+  @@index([loja_id])
+  @@index([criado_em])
+  @@index([acao])
+}
+
+model AppConfig {
+  id            String   @id @default(cuid())
+  chave         String   @unique
+  valor         String
+  descricao     String?
+  atualizado_por String?
+  atualizado_em DateTime @updatedAt
+
+  user User? @relation(fields: [atualizado_por], references: [id])
+}
